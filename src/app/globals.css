@@ -2,3 +2,48 @@
 @tailwind components;
 @tailwind utilities;
 
+.react-tel-input .form-control{
+  width: 120px !important;
+  height: 55px !important;
+  /* display: none; */
+}
+.special-label{
+  display: none !important;
+}
+.react-tel-input .flag-dropdown{
+  background-color: transparent !important;
+  border-right:0px !important;
+}
+
+.phoneInput{
+  width: 22%
+}
+.formContent{
+  padding-left: 10%;
+}
+@media (max-width: 1200px) {
+  .formContent{
+    padding-left: 1% !important;
+  }
+}
+@media (max-width: 768px) {
+  .phone-input-container {
+    flex-direction: column;
+  }
+  .formContent{
+    padding-left: 1% !important;
+  }
+
+  .react-tel-input .form-control{
+    width: 120px !important;
+    height: 55px !important;
+    /* display: none; */
+  }
+  .phone-input-container > div {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  .phoneInput{
+    width: 12%
+  }
+}

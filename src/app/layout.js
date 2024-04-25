@@ -14,8 +14,10 @@ export default function RootLayout({ children }) {
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" />
       </head>
       <body>
-        <Header />
-        {children}
+          <Header />
+        <div className="max-h-screen">
+          {children}
+        </div>
       </body>
     </html>
   );
