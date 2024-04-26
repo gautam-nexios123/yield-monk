@@ -47,3 +47,7 @@
     width: 12%
   }
 }
+
+.rdrDefinedRangesWrapper{
+  display: none !important;
+}

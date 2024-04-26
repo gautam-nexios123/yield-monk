@@ -10,6 +10,7 @@ module.exports = {
       fontFamily: {
         'inter': ['Inter'],
         'roboto': ['Roboto'],
+        'sans': ['Public Sans'],
       },
       boxShadow: {
         "3xl":
