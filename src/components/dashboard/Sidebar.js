@@ -1,5 +1,5 @@
 "use client";
-import React, { } from 'react';
+import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { styled } from '@mui/material/styles';
 import MuiDrawer from '@mui/material/Drawer';
@@ -30,7 +30,7 @@ const openedMixin = (theme) => ({
     backgroundColor: "white",
     boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.2)',
     paddingTop: "3px",
-    minHeight: "80vh"
+    maxHeight: "80vh"
 });
 
 const closedMixin = (theme) => ({
@@ -47,7 +47,7 @@ const closedMixin = (theme) => ({
     backgroundColor: "white",
     boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.2)',
     paddingTop: "3px",
-    minHeight: "80vh"
+    maxHeight: "80vh"
 
 });
 
@@ -71,14 +71,30 @@ const PerMentDrawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 
 const Sidebar = () => {
     const { isOpen } = useSelector((state) => state?.sidebarDrawer);
     const dispatch = useDispatch();
+    const [windowWidth, setWindowWidth] = useState(typeof window !== "undefined" && window.innerWidth);
+
+    useEffect(() => {
+        if (typeof window !== "undefined") {
+            const handleResize = () => {
+                setWindowWidth(window.innerWidth);
+            };
+            window.addEventListener('resize', handleResize);
+            return () => {
+                window.removeEventListener('resize', handleResize);
+            };
+        }
+    }, []);
+
     return (
         <>
             <PerMentDrawer variant='permanent' open={isOpen} className='hidden lg:block'>
                 <MenuList isOpen={isOpen} />
             </PerMentDrawer>
-            <Drawer open={isOpen} onClose={() => dispatch(openClodeDrawerAction(!isOpen))} className='block lg:hidden'>
-                <MenuList isOpen={isOpen} />
-            </Drawer>
+            {
+                windowWidth < 1024 && <Drawer open={isOpen} onClose={() => dispatch(openClodeDrawerAction(!isOpen))} className='block lg:hidden'>
+                    <MenuList isOpen={isOpen} />
+                </Drawer>
+            }
         </>
     )
 }

@@ -31,12 +31,15 @@ const Header = () => {
   }, [pathName]);
 
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    if (typeof window !== "undefined") {
+
+      window.addEventListener("scroll", handleScroll);
+      return () => window.removeEventListener("scroll", handleScroll);
+    }
   }, []);
 
   const handleScroll = () => {
-    if (window.scrollY > 0) {
+    if (typeof window !== "undefined" && window.scrollY > 0) {
       setIsSticky(true);
     } else {
       setIsSticky(false);
