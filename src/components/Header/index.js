@@ -19,7 +19,7 @@ const Header = () => {
   const [showContent, setShowContent] = useState(false);
 
   const contentHideShow = () => {
-    if (pathName === "/" || pathName === "/signup" || pathName === "/login" || pathName === "/create-organization") {
+    if (pathName === "/" || pathName === "/signup" || pathName === "/login" || pathName === "/create-organization" || pathName === "/reset-password" || pathName === "/email-verification") {
       setShowContent(false);
     } else {
       setShowContent(true)

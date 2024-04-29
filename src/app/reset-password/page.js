@@ -139,10 +139,10 @@ console.log("passwordStrength",typeof(passwordStrength))
               backgroundColor: getProgressBarColor(),
             },
           }} />
-         {passwordStrength === 100 &&  <label class=" reset_checkbox flex mt-3">
-                        <input type="checkbox" class="reset_checkbox__input" checked={checkedMark}
+         {passwordStrength === 100 &&  <label className=" reset_checkbox flex mt-3">
+                        <input type="checkbox" className="reset_checkbox__input" checked={checkedMark}
                             onChange={handleCheckboxChange} />
-                        <span class="reset_checkbox__inner"></span>
+                        <span className="reset_checkbox__inner"></span>
                     </label>}
 
                 </div>}

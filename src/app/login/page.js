@@ -42,10 +42,10 @@ const Login = () => {
 
                 </FormControl>
                 <div className='flex justify-between mt-5'>
-                    <label class=" login_checkbox flex">
-                        <input type="checkbox" class="login_checkbox__input" checked={checkedMark}
+                    <label className=" login_checkbox flex">
+                        <input type="checkbox" className="login_checkbox__input" checked={checkedMark}
                             onChange={handleCheckboxChange} />
-                        <span class="login_checkbox__inner"></span>
+                        <span className="login_checkbox__inner"></span>
                         <span className='font-inter text-[#1D2630] text-[14px] font-normal' style={{ marginLeft: 5, }}>Remember me?</span>
                     </label>
 
