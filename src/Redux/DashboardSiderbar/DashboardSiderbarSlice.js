@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const DashboardSiderbarSlice = createSlice({
     name: 'sidebarDrawer',
     initialState: {
-        isOpen: true,
+        isOpen: false,
     },
     reducers: {
         openClodeDrawerAction: (state, action) => {
