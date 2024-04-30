@@ -5,7 +5,11 @@ import { Button } from '@mui/material';
 import CustomSelect from '@/common/CustomSelect';
 import CustomDateRangePicker from '@/components/dashboard/CustomDateRangePicker';
 import EstimatedRevenu from '@/components/dashboard/EstimatedRevenu';
-// import LineChart from '@/components/dashboard/LineChart';
+import LineChart from '@/components/dashboard/LineChart';
+import PerfomanceOverView from '@/components/dashboard/PerfomanceOverView';
+import NetworkRevenue from '@/components/dashboard/NetworkRevenue';
+import CountryWise from '@/components/dashboard/CountryWise';
+import DeviceWise from '@/components/dashboard/DeviceWise';
 
 const Dashboard = () => {
 
@@ -45,7 +49,17 @@ const Dashboard = () => {
             </div>
             <EstimatedRevenu />
             <div className='my-[26px]'>
-                {/* <LineChart /> */}
+                <LineChart />
+            </div>
+            <PerfomanceOverView />
+            <NetworkRevenue />
+            <div className='w-full flex flex-col lg:flex-row gap-[22px]'>
+                <div className='w-full lg:w-[50%]'>
+                    <DeviceWise />
+                </div>
+                <div className='w-full lg:w-[50%]'>
+                    <CountryWise />
+                </div>
             </div>
         </div>
     )
