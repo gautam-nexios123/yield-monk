@@ -41,7 +41,8 @@ const openedMixin = (theme) => ({
     backgroundColor: "white",
     boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.2)',
     paddingTop: "3px",
-    maxHeight: "80vh"
+    height: "80vh",
+    overflowY : "hidden"
 });
 
 const closedMixin = (theme) => ({
@@ -58,8 +59,8 @@ const closedMixin = (theme) => ({
     backgroundColor: "white",
     boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.2)',
     paddingTop: "3px",
-    maxHeight: "80vh"
-
+    height: "80vh",
+    overflowY : "hidden"
 });
 
 const PerMentDrawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' })(
