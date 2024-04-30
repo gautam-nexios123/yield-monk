@@ -5,6 +5,7 @@ import { styled } from '@mui/material/styles';
 import MuiDrawer from '@mui/material/Drawer';
 import { useDispatch, useSelector } from 'react-redux';
 import dashboardIcon from "../../assets/dashboard/speedometer-selected.svg";
+import dashboard from "../../assets/dashboard/speedometer.svg";
 import docIcon from "../../assets/dashboard/document.svg";
 import docIconSelected from "../../assets/dashboard/document-selected.svg";
 import reportIcon from "../../assets/dashboard/report-icon.svg";
@@ -24,6 +25,8 @@ import chatIconSelected from "../../assets/dashboard/chat_bubble_outline-selecte
 import logoutIcon from "../../assets/dashboard/logout.svg";
 import Drawer from '@mui/material/Drawer';
 import { openClodeDrawerAction } from '@/Redux/DashboardSiderbar/DashboardSiderbarSlice';
+import { usePathname, useRouter } from 'next/navigation';
+import { getWindowWidth } from '@/utils';
 
 const drawerWidth = 245;
 
@@ -78,21 +81,7 @@ const PerMentDrawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 
 
 const Sidebar = () => {
     const { isOpen } = useSelector((state) => state?.sidebarDrawer);
-
     const dispatch = useDispatch();
-    const [windowWidth, setWindowWidth] = useState(typeof window !== "undefined" && window.innerWidth);
-
-    useEffect(() => {
-        if (typeof window !== "undefined") {
-            const handleResize = () => {
-                setWindowWidth(window.innerWidth);
-            };
-            window.addEventListener('resize', handleResize);
-            return () => {
-                window.removeEventListener('resize', handleResize);
-            };
-        }
-    }, []);
 
     return (
         <>
@@ -100,7 +89,7 @@ const Sidebar = () => {
                 <MenuList isOpen={isOpen} />
             </PerMentDrawer>
             {
-                windowWidth < 1024 && <Drawer open={isOpen} onClose={() => dispatch(openClodeDrawerAction(!isOpen))} className='block lg:hidden'>
+                getWindowWidth() < 1024 && <Drawer open={isOpen} onClose={() => dispatch(openClodeDrawerAction(!isOpen))} className='block lg:hidden'>
                     <MenuList isOpen={isOpen} />
                 </Drawer>
             }
@@ -112,13 +101,22 @@ export default Sidebar
 
 const MenuList = ({ isOpen }) => {
     const [isHovered, setIsHovered] = useState(null);
+    const navigate = useRouter();
+    const pathName = usePathname();
+    console.log("pathName",pathName)
     return (
         <div className={`px-[20px] py-[20px] flex flex-col ${!isOpen && "items-center"}`}>
 
-            {isOpen ? <div className={`font-inter font-medium cursor-pointer text-[14px] py-[12px] px-[14px] bg-[#EDF3FF] rounded-lg text-[#4680FF] flex items-center gap-2`}>
+            {isOpen ? pathName === "/dashboard" ? <div className={`font-inter font-medium cursor-pointer text-[14px] py-[12px] px-[14px]  flex items-center gap-2 text-[#4680FF]  bg-[#EDF3FF]`} onClick={() => navigate.push("/dashboard")} onMouseEnter={() => setIsHovered("dashboard")}
+                    onMouseLeave={() => setIsHovered(null)}  >
                 <Image src={dashboardIcon} alt='dashboardIcon' width={18} height={18} />
                 Dashboard
-            </div> : <div className={`w-[38px] h-[38px] bg-[#EDF3FF] rounded-lg flex items-center justify-center my-[10px] cursor-pointer`}><Image src={dashboardIcon} alt='dashboardIcon' width={18} height={18} /></div>
+            </div> : <div className={`font-inter font-medium cursor-pointer text-[14px] py-[12px] px-[14px]  flex items-center gap-2 hover:text-[#4680FF] hover:bg-[#EDF3FF]`} onMouseEnter={() => setIsHovered("dashboard")}
+                    onMouseLeave={() => setIsHovered(null)} onClick={() => navigate.push("/dashboard")} >
+                <Image src={isHovered === "dashboard" ? dashboardIcon : dashboard} alt='dashboardIcon' width={18} height={18} />
+                Dashboard
+            </div> : <div className={`w-[38px] h-[38px] rounded-lg flex items-center justify-center my-[10px] cursor-pointer`} onMouseEnter={() => setIsHovered("dashboard")}
+                    onMouseLeave={() => setIsHovered(null)} ><Image src={ isHovered === "dashboard" ? dashboardIcon : dashboard} alt='dashboardIcon' width={18} height={18} /></div>
             }
 
             {
@@ -171,12 +169,15 @@ const MenuList = ({ isOpen }) => {
             }
 
             {
-                isOpen ? <div className={`font-inter font-medium cursor-pointer text-[14px] py-[12px] px-[14px] rounded-lg text-[#5B6B79] flex items-center gap-2  hover:text-[#4680FF] hover:bg-[#EDF3FF]`} onMouseEnter={() => setIsHovered("accountdetails")}
-                    onMouseLeave={() => setIsHovered(null)} >
-                    <Image src={isHovered === "accountdetails" ? lockIconSelecter : lockIcon} alt='lock' width={18} height={18} />
-                    Account Details
-                </div> : <div className={`w-[38px] h-[38px] rounded-lg flex items-center justify-center my-[10px] cursor-pointer`} onMouseEnter={() => setIsHovered("accountdetails")}
-                    onMouseLeave={() => setIsHovered(null)}><Image src={isHovered === "accountdetails" ? lockIconSelecter : lockIcon} alt='lock' width={18} height={18} /></div>
+                isOpen  ?  pathName === "/payment" ? <div className={`font-inter font-medium cursor-pointer text-[14px] py-[12px] px-[14px] rounded-lg text-[#4680FF]  bg-[#EDF3FF] flex items-center gap-2 `} onClick={() => navigate.push("/payment")} >
+                <Image src={lockIconSelecter} alt='lock' width={18} height={18} />
+                Payments
+            </div> : <div className={`font-inter font-medium cursor-pointer text-[14px] py-[12px] px-[14px] rounded-lg text-[#5B6B79] flex items-center gap-2  hover:text-[#4680FF] hover:bg-[#EDF3FF]`} onMouseEnter={() => setIsHovered("payment")}
+                    onMouseLeave={() => setIsHovered(null)} onClick={() => navigate.push("/payment")} >
+                    <Image src={isHovered === "payment" ? lockIconSelecter : lockIcon} alt='lock' width={18} height={18} />
+                    Payments
+                </div> : <div className={`w-[38px] h-[38px] rounded-lg flex items-center justify-center my-[10px] cursor-pointer`} onMouseEnter={() => setIsHovered("payment")}
+                    onMouseLeave={() => setIsHovered(null)}><Image src={isHovered === "payment" ? lockIconSelecter : lockIcon} alt='lock' width={18} height={18} /></div>
             }
 
             {isOpen && <div className='font-inter text-[#1D2630] font-bold text-sm px-[14px] py-[12px]'>Support</div>}

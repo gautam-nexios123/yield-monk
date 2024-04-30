@@ -102,6 +102,15 @@
   height: 6px;
 }
 
+/* Stepper */
+.MuiStepConnector-root{
+  margin-left: 17px !important;
+}
+.MuiStepConnector-line {
+    min-height: 80px !important;
+}
+
+
 @media (max-width: 1200px) {
   .formContent{
     padding-left: 1% !important;
