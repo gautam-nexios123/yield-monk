@@ -104,7 +104,6 @@ const MenuList = ({ isOpen }) => {
     const [isHovered, setIsHovered] = useState(null);
     const navigate = useRouter();
     const pathName = usePathname();
-    console.log("pathName",pathName)
     return (
         <div className={`px-[20px] py-[20px] flex flex-col ${!isOpen && "items-center"}`}>
 
