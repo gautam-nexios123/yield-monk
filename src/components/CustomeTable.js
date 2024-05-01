@@ -37,7 +37,7 @@ const CustomeTable = ({ tableData, serchFilterKey, totalRowShow, pagginationShow
     const [sortByColumn, setSortByColumn] = useState('');
 
     const filteredRows = tableData?.filter(row =>
-        row[serchFilterKey].toLowerCase().includes(filterValue.toLowerCase())
+        row[serchFilterKey]?.toLowerCase().includes(filterValue?.toLowerCase())
     );
 
     const totalPages = Math.ceil(filteredRows?.length / rowsPerPage);

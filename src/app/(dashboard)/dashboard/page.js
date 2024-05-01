@@ -10,6 +10,7 @@ import PerfomanceOverView from '@/components/dashboard/PerfomanceOverView';
 import NetworkRevenue from '@/components/dashboard/NetworkRevenue';
 import CountryWise from '@/components/dashboard/CountryWise';
 import DeviceWise from '@/components/dashboard/DeviceWise';
+import SiteWiseTable from '@/components/dashboard/SiteWiseTable';
 
 const Dashboard = () => {
 
@@ -30,8 +31,6 @@ const Dashboard = () => {
         setDay(event.target.value);
     };
 
-
-
     return (
         <div className='w-full relative bg-white px-[25px] my-[31px]'>
             <div className='w-full flex items-center justify-between border border-[#EFEFEF] p-[16px] rounded-lg'>
@@ -51,6 +50,9 @@ const Dashboard = () => {
             <div className='my-[26px]'>
                 <LineChart />
             </div>
+
+            <SiteWiseTable />
+
             <PerfomanceOverView />
             <NetworkRevenue />
             <div className='w-full flex flex-col lg:flex-row gap-[22px]'>
