@@ -36,7 +36,7 @@ const steps = [{
 
 
 const Payments = () => {
-  const [value, setValue] = useState('Transactions');
+  const [value, setValue] = useState('Account Details');
   const [activeStep, setActiveStep] = useState(0);
 
   const isMobile = getWindowWidth();
@@ -96,7 +96,7 @@ const Payments = () => {
         value === "Account Details" && (
           <div className='w-full relative bg-white px-[0px] my-[31px]'>
             <div className='w-full flex-col md:flex-row flex border border-[#EFEFEF] p-[16px] rounded-lg'>
-              <div className='border border-[#EFEFEF] flex flex-col md:flex-row items-center p-[8px] md:p-[16px] rounded-lg md:w-[30%] w-full '>
+              <div className='border bg-[#FAFAFA] border-[#EFEFEF] flex flex-col md:flex-row items-center p-[8px] md:p-[16px] rounded-lg md:w-[35%] w-full '>
                 <Stepper
                   activeStep={activeStep}
                   // className={classes.stepper}

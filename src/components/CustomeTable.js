@@ -81,7 +81,7 @@ const CustomeTable = ({ tableData, serchFilterKey, totalRowShow, pagginationShow
 
     return (
         <div>
-            <div className='flex justify-between'>
+            <div className='flex justify-between flex-col sm:flex-row'>
                 <div className='flex gap-2 mt-5'>
                     <p className='font-inter font-normal text-[14px] text-[#353535] mt-2'>Row per page</p>
                     <CustomSelect value={rowsPerPage} handleChange={handleChangeAll} menuList={[5, 10, 15, 25]} width={70} />
@@ -159,8 +159,8 @@ const CustomeTable = ({ tableData, serchFilterKey, totalRowShow, pagginationShow
 
 
             </TableContainer>
-            {pagginationShow && <div className='flex justify-between mt-3 p-5'>
-                <p>Showing {filteredRows.length > 0 ? ((currentPage - 1) * rowsPerPage + 1) : 0} to {(currentPage * rowsPerPage) > filteredRows.length ? filteredRows.length : (currentPage * rowsPerPage)} of {filteredRows.length} entries</p>
+            {pagginationShow && <div className='flex justify-between mt-3 p-5 flex-col sm:flex-row'>
+                <p className='mb-5 sm:mb-0'>Showing {filteredRows.length > 0 ? ((currentPage - 1) * rowsPerPage + 1) : 0} to {(currentPage * rowsPerPage) > filteredRows.length ? filteredRows.length : (currentPage * rowsPerPage)} of {filteredRows.length} entries</p>
                 <Pagination onChange={(e, currentPage) => handlePageChange(e, currentPage)}
                     page={currentPage}
                     siblingCount={0}
