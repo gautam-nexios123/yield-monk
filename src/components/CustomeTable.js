@@ -84,7 +84,7 @@ const CustomeTable = ({ tableData, serchFilterKey, totalRowShow, pagginationShow
             <div className='flex justify-between flex-col sm:flex-row'>
                 <div className='flex gap-2 mt-5'>
                     <p className='font-inter font-normal text-[14px] text-[#353535] mt-2'>Row per page</p>
-                    <CustomSelect value={rowsPerPage} handleChange={handleChangeAll} menuList={[5, 10, 15, 25]} width={70} />
+                    <CustomSelect value={rowsPerPage} handleChange={handleChangeAll} menuList={[5, 10, 15, 25]} width={70} textColor={"#1E1E1E"} borderColor={"#DBE0E5"} />
                     <p className='font-inter font-normal text-[14px] text-[#353535] mt-2'>entries</p>
                 </div>
                 <div className='flex gap-2 mt-5'>

@@ -41,9 +41,9 @@ const Dashboard = () => {
             </div>
             <div className='w-full mt-[17px] mb-[26px]'>
                 <div className='flex flex-col md:flex-row gap-[24px] justify-end'>
-                    <CustomSelect value={linkAll} handleChange={handleChangeAll} menuList={["all", "one", "two"]} width={70} />
+                    <CustomSelect value={linkAll} handleChange={handleChangeAll} menuList={["all", "one", "two"]} width={70} textColor={"#1E1E1E"} borderColor={"#DBE0E5"} />
                     <CustomDateRangePicker dateRange={dateRange} setDateRange={setDateRange} />
-                    <CustomSelect value={day} handleChange={handleChangeDay} menuList={["today", "yesterday", "last 7 days", "last 30 days", "this month", "last month"]} width={100} />
+                    <CustomSelect value={day} handleChange={handleChangeDay} menuList={["today", "yesterday", "last 7 days", "last 30 days", "this month", "last month"]} width={100} textColor={"#1E1E1E"} borderColor={"#DBE0E5"} />
                 </div>
             </div>
             <EstimatedRevenu />

@@ -25,7 +25,7 @@ const CustomDateRangePicker = ({dateRange ,setDateRange}) => {
 
     return (
         <div>
-            <div onClick={() => handleOpen()} className='flex items-center justify-between gap-[20px] border border-[#CFD1D4] px-[12px] py-[5px] cursor-pointer'>
+            <div onClick={() => handleOpen()} className='flex items-center justify-between gap-[20px] border border-[#CFD1D4] rounded px-[12px] py-[5px] cursor-pointer'>
                 <div className='text-[14px] font-inter font-medium text-[#1E1E1E]'>{moment(dateRange[0]?.startDate).format('DD/MM/YYYY')}</div>
                 <div><Image src={arrowLeft} alt='arrowLeft' /></div>
                 <div className='text-[14px] font-inter font-medium text-[#1E1E1E]'>{moment(dateRange[0]?.endDate).format('DD/MM/YYYY')}</div>

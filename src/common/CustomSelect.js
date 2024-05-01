@@ -1,16 +1,34 @@
 "use client"
 import { FormControl, MenuItem, Select } from '@mui/material'
+import { makeStyles } from '@mui/styles';
 import React from 'react'
 
-const CustomSelect = ({ value, handleChange, menuList ,width }) => {
+const useStyles = makeStyles({
+    root: {
+        '& .MuiOutlinedInput-notchedOutline': {
+            border: 'none !important',
+        },
+        '&:hover .MuiOutlinedInput-notchedOutline': {
+            border: 'none !important',
+        },
+        '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+            border: 'none !important',
+        }
+    },
+});
+
+const CustomSelect = ({ value, handleChange, menuList, width, textColor, borderColor }) => {
+    const classes = useStyles();
+
     return (
-        <FormControl sx={{ minWidth : width }}>
+        <FormControl className={classes.root} sx={{ minWidth: width }}>
             <Select
                 value={value}
                 onChange={handleChange}
                 displayEmpty
                 inputProps={{ 'aria-label': 'Without label' }}
-                className='capitalize text-[#1E1E1E] font-medium text-[14px]'
+                style={{ color: textColor, border: `1px solid ${borderColor}` }}
+                className={`capitalize font-medium text-[14px]`}
                 size='small'
             >
                 {
