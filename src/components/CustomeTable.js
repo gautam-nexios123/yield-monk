@@ -88,7 +88,7 @@ const CustomeTable = ({ tableData, serchFilterKey, totalRowShow, pagginationShow
                     <p className='font-inter font-normal text-[14px] text-[#353535] mt-2'>entries</p>
                 </div>
                 <div className='flex gap-2 mt-5'>
-                    <p className='font-inter font-normal text-[14px] text-[#353535] mt-1'>Search : </p>
+                    <p className='font-inter font-normal text-[14px] text-[#353535] mt-1'>Search: </p>
                     <OutlinedInput
                         id="org-name"
                         aria-describedby="org-name-helper"
