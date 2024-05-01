@@ -42,7 +42,7 @@ const openedMixin = (theme) => ({
     boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.2)',
     paddingTop: "3px",
     height: "80vh",
-    overflowY : "hidden"
+    overflowY: "hidden"
 });
 
 const closedMixin = (theme) => ({
@@ -60,7 +60,7 @@ const closedMixin = (theme) => ({
     boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.2)',
     paddingTop: "3px",
     height: "80vh",
-    overflowY : "hidden"
+    overflowY: "hidden"
 });
 
 const PerMentDrawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' })(
@@ -108,24 +108,37 @@ const MenuList = ({ isOpen }) => {
         <div className={`px-[20px] py-[20px] flex flex-col ${!isOpen && "items-center"}`}>
 
             {isOpen ? pathName === "/dashboard" ? <div className={`font-inter font-medium cursor-pointer text-[14px] py-[12px] px-[14px]  flex items-center gap-2 text-[#4680FF]  bg-[#EDF3FF]`} onClick={() => navigate.push("/dashboard")} onMouseEnter={() => setIsHovered("dashboard")}
-                    onMouseLeave={() => setIsHovered(null)}  >
+                onMouseLeave={() => setIsHovered(null)}  >
                 <Image src={dashboardIcon} alt='dashboardIcon' width={18} height={18} />
                 Dashboard
             </div> : <div className={`font-inter font-medium cursor-pointer text-[14px] py-[12px] px-[14px]  flex items-center gap-2 hover:text-[#4680FF] hover:bg-[#EDF3FF]`} onMouseEnter={() => setIsHovered("dashboard")}
-                    onMouseLeave={() => setIsHovered(null)} onClick={() => navigate.push("/dashboard")} >
+                onMouseLeave={() => setIsHovered(null)} onClick={() => navigate.push("/dashboard")} >
                 <Image src={isHovered === "dashboard" ? dashboardIcon : dashboard} alt='dashboardIcon' width={18} height={18} />
                 Dashboard
-            </div> : <div className={`w-[38px] h-[38px] rounded-lg flex items-center justify-center my-[10px] cursor-pointer`} onMouseEnter={() => setIsHovered("dashboard")}
-                    onMouseLeave={() => setIsHovered(null)} ><Image src={ isHovered === "dashboard" ? dashboardIcon : dashboard} alt='dashboardIcon' width={18} height={18} /></div>
+            </div> :
+                pathName === "/dashboard" ? <div className={`w-[38px] h-[38px] rounded-lg flex items-center justify-center my-[10px] cursor-pointer`} onMouseEnter={() => setIsHovered("payment")}
+                    onMouseLeave={() => setIsHovered(null)}><Image src={dashboardIcon} alt='lock' width={18} height={18} /></div> :
+                    <div className={`w-[38px] h-[38px] rounded-lg flex items-center justify-center my-[10px] cursor-pointer`} onMouseEnter={() => setIsHovered("dashboard")} onClick={() => navigate.push("/dashboard")}
+                        onMouseLeave={() => setIsHovered(null)} ><Image src={isHovered === "dashboard" ? dashboardIcon : dashboard} alt='dashboardIcon' width={18} height={18} /></div>
             }
 
             {
-                isOpen ? <div className={`font-inter font-medium cursor-pointer text-[14px] py-[12px] px-[14px] rounded-lg text-[#5B6B79] flex items-center gap-2 hover:text-[#4680FF] hover:bg-[#EDF3FF]`} onMouseEnter={() => setIsHovered("mySites")}
-                    onMouseLeave={() => setIsHovered(null)} >
-                    <Image src={isHovered === "mySites" ? docIconSelected : docIcon} alt='docIcon' width={18} height={18} />
-                    My Sites
-                </div> : <div className={`w-[38px] h-[38px] rounded-lg flex items-center justify-center my-[10px] cursor-pointer`} onMouseEnter={() => setIsHovered("mySites")}
-                    onMouseLeave={() => setIsHovered(null)} ><Image src={isHovered === "mySites" ? docIconSelected : docIcon} alt='docIcon' width={18} height={18} /></div>
+                isOpen ?
+                    pathName === "/mysites" ? <div className={`font-inter font-medium cursor-pointer text-[14px] py-[12px] px-[14px] rounded-lg text-[#4680FF]  bg-[#EDF3FF] flex items-center gap-2`} onMouseEnter={() => setIsHovered("mySites")}
+                        onMouseLeave={() => setIsHovered(null)} >
+                        <Image src={docIconSelected} alt='docIcon' width={18} height={18} />
+                        My Sites
+                    </div> :
+                        <div className={`font-inter font-medium cursor-pointer text-[14px] py-[12px] px-[14px] rounded-lg text-[#5B6B79] flex items-center gap-2 hover:text-[#4680FF] hover:bg-[#EDF3FF]`} onMouseEnter={() => setIsHovered("mySites")}
+                            onMouseLeave={() => setIsHovered(null)} onClick={() => navigate.push("/mysites")} >
+                            <Image src={isHovered === "mySites" ? docIconSelected : docIcon} alt='docIcon' width={18} height={18} />
+                            My Sites
+                        </div> :
+                    pathName === "/mysites" ? <div className={`w-[38px] h-[38px] rounded-lg flex items-center justify-center my-[10px] cursor-pointer`} onMouseEnter={() => setIsHovered("mySites")}
+                        onMouseLeave={() => setIsHovered(null)} ><Image src={docIconSelected} alt='docIcon' width={18} height={18} /></div>
+                        :
+                        <div className={`w-[38px] h-[38px] rounded-lg flex items-center justify-center my-[10px] cursor-pointer`}  onClick={() => navigate.push("/mysites")} onMouseEnter={() => setIsHovered("mySites")}
+                            onMouseLeave={() => setIsHovered(null)} ><Image src={isHovered === "mySites" ? docIconSelected : docIcon} alt='docIcon' width={18} height={18} /></div>
             }
 
             {
@@ -169,15 +182,20 @@ const MenuList = ({ isOpen }) => {
             }
 
             {
-                isOpen  ?  pathName === "/payment" ? <div className={`font-inter font-medium cursor-pointer text-[14px] py-[12px] px-[14px] rounded-lg text-[#4680FF]  bg-[#EDF3FF] flex items-center gap-2 `} onClick={() => navigate.push("/payment")} >
-                <Image src={lockIconSelecter} alt='lock' width={18} height={18} />
-                Payments
-            </div> : <div className={`font-inter font-medium cursor-pointer text-[14px] py-[12px] px-[14px] rounded-lg text-[#5B6B79] flex items-center gap-2  hover:text-[#4680FF] hover:bg-[#EDF3FF]`} onMouseEnter={() => setIsHovered("payment")}
+                isOpen ? pathName === "/payment" ? <div className={`font-inter font-medium cursor-pointer text-[14px] py-[12px] px-[14px] rounded-lg text-[#4680FF]  bg-[#EDF3FF] flex items-center gap-2 `} onClick={() => navigate.push("/payment")} >
+                    <Image src={lockIconSelecter} alt='lock' width={18} height={18} />
+                    Payments
+                </div> : <div className={`font-inter font-medium cursor-pointer text-[14px] py-[12px] px-[14px] rounded-lg text-[#5B6B79] flex items-center gap-2  hover:text-[#4680FF] hover:bg-[#EDF3FF]`} onMouseEnter={() => setIsHovered("payment")}
                     onMouseLeave={() => setIsHovered(null)} onClick={() => navigate.push("/payment")} >
                     <Image src={isHovered === "payment" ? lockIconSelecter : lockIcon} alt='lock' width={18} height={18} />
                     Payments
-                </div> : <div className={`w-[38px] h-[38px] rounded-lg flex items-center justify-center my-[10px] cursor-pointer`} onMouseEnter={() => setIsHovered("payment")}
-                    onMouseLeave={() => setIsHovered(null)}><Image src={isHovered === "payment" ? lockIconSelecter : lockIcon} alt='lock' width={18} height={18} /></div>
+                </div> :
+
+                    pathName === "/payment" ? <div className={`w-[38px] h-[38px] rounded-lg flex items-center justify-center my-[10px] cursor-pointer`} onMouseEnter={() => setIsHovered("payment")}
+                        onMouseLeave={() => setIsHovered(null)}><Image src={lockIconSelecter} alt='lock' width={18} height={18} /></div> :
+
+                        <div className={`w-[38px] h-[38px] rounded-lg flex items-center justify-center my-[10px] cursor-pointer`} onMouseEnter={() => setIsHovered("payment")}
+                            onMouseLeave={() => setIsHovered(null)} onClick={() => navigate.push("/payment")} ><Image src={isHovered === "payment" ? lockIconSelecter : lockIcon} alt='lock' width={18} height={18} /></div>
             }
 
             {isOpen && <div className='font-inter text-[#1D2630] font-bold text-sm px-[14px] py-[12px]'>Support</div>}

@@ -161,7 +161,8 @@ const CustomeTable = ({ tableData, serchFilterKey, totalRowShow, pagginationShow
             </TableContainer>
             {pagginationShow && <div className='flex justify-between mt-3 p-5 flex-col sm:flex-row'>
                 <p className='mb-5 sm:mb-0'>Showing {filteredRows.length > 0 ? ((currentPage - 1) * rowsPerPage + 1) : 0} to {(currentPage * rowsPerPage) > filteredRows.length ? filteredRows.length : (currentPage * rowsPerPage)} of {filteredRows.length} entries</p>
-                <Pagination onChange={(e, currentPage) => handlePageChange(e, currentPage)}
+                <Pagination 
+                    onChange={(e, currentPage) => handlePageChange(e, currentPage)}
                     page={currentPage}
                     siblingCount={0}
                     boundaryCount={1}
