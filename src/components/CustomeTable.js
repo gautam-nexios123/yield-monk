@@ -1,9 +1,11 @@
 "use client"
-import { Pagination, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, tableCellClasses } from '@mui/material'
+import { OutlinedInput, Pagination, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, tableCellClasses } from '@mui/material'
 import React, { useState } from 'react'
 import { styled } from '@mui/styles';
 import Sort from "../assets/payment/sort.svg";
+import Invocie from "../assets/payment/invoice.svg";
 import Image from 'next/image';
+import CustomSelect from '@/common/CustomSelect';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
@@ -27,45 +29,45 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
     border: "none"
 }));
 
-const CustomeTable = ({ rows, filterValue, rowsPerPage }) => {
-    const [sortBy, setSortBy] = useState({ column: null, direction: 'asc' });
+const CustomeTable = ({ tableData ,serchFilterKey}) => {
     const [currentPage, setCurrentPage] = useState(1);
+    const [rowsPerPage, setRowsPerPage] = useState(5);
+    const [filterValue, setFilterValue] = useState("");
+    const [sortOrder, setSortOrder] = useState('desc');
+    const [sortByColumn, setSortByColumn] = useState('');
 
+    const filteredRows = tableData?.filter(row =>
+        row[serchFilterKey].toLowerCase().includes(filterValue.toLowerCase())
+    );
 
+    const totalPages = Math.ceil(filteredRows?.length / rowsPerPage);
+    const paginatedRows = filteredRows?.slice((currentPage - 1) * rowsPerPage, currentPage * rowsPerPage);
 
+    const allKeys = tableData?.reduce((keys, obj) => {
+        return keys.concat(Object.keys(obj));
+    }, []);
 
+    const columns = [...new Set(allKeys)];
 
-
-
-
-    const handleSort = (column) => {
-        setSortBy(prev => ({
-            column,
-            direction: prev.column === column && prev.direction === 'asc' ? 'desc' : 'asc'
-        }));
+    const handleSortData = (column) => {
+        if (sortByColumn === column) {
+            setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc');
+        } else {
+            setSortByColumn(column);
+            setSortOrder('asc');
+        }
     };
 
-    const sortedRows = [...rows].sort((a, b) => {
-        if (sortBy.column) {
-            const aValue = a[sortBy.column];
-            const bValue = b[sortBy.column];
-            if (aValue < bValue) return sortBy.direction === 'asc' ? -1 : 1;
-            if (aValue > bValue) return sortBy.direction === 'asc' ? 1 : -1;
-            return 0;
-        }
-        return 0;
-    });
-    const filteredRows = sortedRows.filter(row =>
-        row.name.toLowerCase().includes(filterValue.toLowerCase())
-    );
-    const totalPages = Math.ceil(filteredRows.length / rowsPerPage);
-    const paginatedRows = filteredRows.slice((currentPage - 1) * rowsPerPage, currentPage * rowsPerPage);
+    const handleChangeAll = (event) => {
+        setRowsPerPage(event.target.value);
+        setCurrentPage(1);
+    };
+
     const handlePageChange = (event, page) => {
         setCurrentPage(page);
     };
 
     const handleNextPage = () => {
-
         if (currentPage < totalPages) {
             setCurrentPage((prevPage) => prevPage + 1);
         }
@@ -77,70 +79,76 @@ const CustomeTable = ({ rows, filterValue, rowsPerPage }) => {
         }
     };
 
-
     return (
         <div>
+            <div className='flex justify-between'>
+                <div className='flex gap-2 mt-5'>
+                    <p className='font-inter font-normal text-[14px] text-[#353535] mt-2'>Row per page</p>
+                    <CustomSelect value={rowsPerPage} handleChange={handleChangeAll} menuList={[5, 10, 15, 25]} width={70} />
+                    <p className='font-inter font-normal text-[14px] text-[#353535] mt-2'>entries</p>
+                </div>
+                <div className='flex gap-2 mt-5'>
+                    <p className='font-inter font-normal text-[14px] text-[#353535] mt-1'>Search : </p>
+                    <OutlinedInput
+                        id="org-name"
+                        aria-describedby="org-name-helper"
+                        inputProps={{
+                            'aria-label': 'organisation name',
+                        }}
+                        sx={{ borderRadius: "8px !important", height: "34px", padding: "8px 12px" }}
+                        placeholder='Search'
+                        value={filterValue}
+                        onChange={(e) => setFilterValue(e.target.value)}
+                    />
+
+                </div>
+
+            </div>
             <TableContainer component={Paper} className='mt-5'>
                 <Table sx={{ minWidth: 700 }} aria-label="customized table">
                     <TableHead>
                         <TableRow>
-                            <StyledTableCell align='right' className='cursor-pointer' onClick={() => handleSort('name')}>
-                                <div className='flex justify-center  gap-2'>
-                                    Dessert (100g serving) <Image src={Sort} alt='sort' />
-                                </div>
-                            </StyledTableCell>
-                            <StyledTableCell className='cursor-pointer' onClick={() => handleSort('calories')} align="right">
+                            {columns?.map((column, index) => (
+                                <StyledTableCell key={index} className='cursor-pointer' onClick={() => handleSortData(column)} align="right">
+                                    <div className='flex  gap-2'>
+                                        {column} <Image src={Sort} alt='sort' />
+                                    </div>
+                                </StyledTableCell>
+                            ))}
+                            <StyledTableCell className='cursor-pointer' align="right">
                                 <div className='flex  gap-2'>
-                                    Calories <Image src={Sort} alt='sort' />
-                                </div>
-                            </StyledTableCell>
-                            <StyledTableCell className='cursor-pointer' onClick={() => handleSort('fat')} align="right">
-                                <div className='flex gap-2'>
-                                    Fat&nbsp;(g) <Image src={Sort} alt='sort' />
-                                </div>
-                            </StyledTableCell>
-                            <StyledTableCell className='cursor-pointer' onClick={() => handleSort('carbs')} align="right">
-                                <div className='flex gap-2'>
-                                    Carbs&nbsp;(g) <Image src={Sort} alt='sort' />
-                                </div>
-                            </StyledTableCell>
-                            <StyledTableCell className='cursor-pointer' onClick={() => handleSort('protein')} align="right">
-                                <div className='flex items-center gap-2'>
-                                    Protein&nbsp;(g) <Image src={Sort} alt='sort' />
+                                    Invoice
                                 </div>
                             </StyledTableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {paginatedRows.length > 0 ? paginatedRows?.map((row, index) => (
+                        {paginatedRows.length > 0 ? paginatedRows?.sort((a, b) => {
+                            const comparison = a[sortByColumn] > b[sortByColumn] ? 1 : -1;
+                            return sortOrder === 'asc' ? comparison : -comparison;
+                        })?.map((row, index) => (
                             <StyledTableRow key={index}>
-                                <StyledTableCell component="th" scope="row">
-                                    {row.name}
+                                {columns?.map((column, colIndex) => (
+                                    <StyledTableCell key={colIndex} align="start">{row[column]}</StyledTableCell>
+                                ))}
+                                <StyledTableCell align="start">
+                                    <Image src={Invocie} alt='invoice' />
                                 </StyledTableCell>
-                                <StyledTableCell align="start">{row.calories}</StyledTableCell>
-                                <StyledTableCell align="start">{row.fat}</StyledTableCell>
-                                <StyledTableCell align="start">{row.carbs}</StyledTableCell>
-                                <StyledTableCell align="start">{row.protein}</StyledTableCell>
                             </StyledTableRow>
-                        ))
-                            :
+                        )) :
                             <StyledTableRow>
-                                <StyledTableCell align="center" colSpan={5}>
+                                <StyledTableCell align="center" colSpan={12}>
                                     No data Found
                                 </StyledTableCell>
                             </StyledTableRow>
-
                         }
                     </TableBody>
-
                 </Table>
 
 
             </TableContainer>
             <div className='flex justify-between mt-3 p-5'>
-                {/* <p>Showing {(currentPage - 1) * rowsPerPage + 1} to {(currentPage * rowsPerPage) > sortedRows.length ? sortedRows.length : (currentPage * rowsPerPage)} of {sortedRows.length} entries</p> */}
                 <p>Showing {filteredRows.length > 0 ? ((currentPage - 1) * rowsPerPage + 1) : 0} to {(currentPage * rowsPerPage) > filteredRows.length ? filteredRows.length : (currentPage * rowsPerPage)} of {filteredRows.length} entries</p>
-
                 <Pagination onChange={(e, currentPage) => handlePageChange(e, currentPage)}
                     page={currentPage}
                     siblingCount={0}
