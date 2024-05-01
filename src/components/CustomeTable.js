@@ -9,7 +9,7 @@ import CustomSelect from '@/common/CustomSelect';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
-        //   backgroundColor: "black !important",
+        backgroundColor: "#FAFAFA",
         color: "black",
     },
     [`&.${tableCellClasses.body}`]: {
@@ -19,7 +19,7 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
 }));
 
 const StyledTableRow = styled(TableRow)(({ theme }) => ({
-    '&:nth-of-type(odd)': {
+    '&:nth-of-type(even)': {
         backgroundColor: "#FAFAFA",
     },
     // hide last border
@@ -29,7 +29,7 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
     border: "none"
 }));
 
-const CustomeTable = ({ tableData ,serchFilterKey}) => {
+const CustomeTable = ({ tableData, serchFilterKey, totalRowShow, pagginationShow,invoiceShow }) => {
     const [currentPage, setCurrentPage] = useState(1);
     const [rowsPerPage, setRowsPerPage] = useState(5);
     const [filterValue, setFilterValue] = useState("");
@@ -115,11 +115,11 @@ const CustomeTable = ({ tableData ,serchFilterKey}) => {
                                     </div>
                                 </StyledTableCell>
                             ))}
-                            <StyledTableCell className='cursor-pointer' align="right">
+                            {invoiceShow && <StyledTableCell className='cursor-pointer' align="right">
                                 <div className='flex  gap-2'>
                                     Invoice
                                 </div>
-                            </StyledTableCell>
+                            </StyledTableCell>}
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -131,10 +131,11 @@ const CustomeTable = ({ tableData ,serchFilterKey}) => {
                                 {columns?.map((column, colIndex) => (
                                     <StyledTableCell key={colIndex} align="start">{row[column]}</StyledTableCell>
                                 ))}
-                                <StyledTableCell align="start">
+                                {invoiceShow && <StyledTableCell align="start">
                                     <Image src={Invocie} alt='invoice' />
-                                </StyledTableCell>
+                                </StyledTableCell>}
                             </StyledTableRow>
+
                         )) :
                             <StyledTableRow>
                                 <StyledTableCell align="center" colSpan={12}>
@@ -142,12 +143,23 @@ const CustomeTable = ({ tableData ,serchFilterKey}) => {
                                 </StyledTableCell>
                             </StyledTableRow>
                         }
+                        {totalRowShow && <StyledTableRow >
+                            <StyledTableCell align="start" colSpan={1}>
+                                Total
+                            </StyledTableCell>
+                            <StyledTableCell align="start">
+
+                            </StyledTableCell>
+                            <StyledTableCell align="start"colSpan={10} >
+                                5258522
+                            </StyledTableCell>
+                        </StyledTableRow>}
                     </TableBody>
                 </Table>
 
 
             </TableContainer>
-            <div className='flex justify-between mt-3 p-5'>
+            {pagginationShow && <div className='flex justify-between mt-3 p-5'>
                 <p>Showing {filteredRows.length > 0 ? ((currentPage - 1) * rowsPerPage + 1) : 0} to {(currentPage * rowsPerPage) > filteredRows.length ? filteredRows.length : (currentPage * rowsPerPage)} of {filteredRows.length} entries</p>
                 <Pagination onChange={(e, currentPage) => handlePageChange(e, currentPage)}
                     page={currentPage}
@@ -158,7 +170,7 @@ const CustomeTable = ({ tableData ,serchFilterKey}) => {
                     onNextClick={() => handleNextPage()}
                     onPrevClick={() => handlePrevPage()}
                     count={totalPages} />
-            </div>
+            </div>}
         </div>
     )
 }
