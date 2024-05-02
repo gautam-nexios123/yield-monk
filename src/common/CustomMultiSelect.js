@@ -1,10 +1,24 @@
 "use client"
 import { Button } from '@mui/material';
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
 
 const CustomMultiSelect = ({ dataValueArray, selctedValue, setSelectedValue, checkBoxShox }) => {
     const [dropDownOpen, setDropDownOpen] = useState(false);
+    const wrapperRef = useRef(null);
+
+    useEffect(() => {
+        function handleClickOutside(event) {
+            if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
+                setDropDownOpen(false);
+            }
+        }
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, [wrapperRef]);
 
     const handleChacked = (e) => {
         const valueChecked = e.target.value;
@@ -17,8 +31,8 @@ const CustomMultiSelect = ({ dataValueArray, selctedValue, setSelectedValue, che
     }
 
     return (
-        <div className='relative'>
-            <Button variant="outlined" onClick={() => setDropDownOpen(!dropDownOpen)} className='text-[#4680FF] font-inter font-normal text-[14px] border-[#4680FF] rounded-md capitalize'>Select Value <ArrowDropDownIcon /></Button>
+        <div ref={wrapperRef} className='relative'>
+            <Button variant="outlined" onClick={() => setDropDownOpen(!dropDownOpen)} className='text-[#4680FF] font-inter font-normal text-[14px] border-[#4680FF] rounded-md capitalize'>Select Value {dropDownOpen ? <ArrowDropUpIcon /> : <ArrowDropDownIcon />}</Button>
             {
                 dropDownOpen && <div className='absolute z-10 bg-[#F8F9FA] p-3 rounded shadow-lg !w-[250px]'>
                     {
