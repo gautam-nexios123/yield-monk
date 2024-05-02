@@ -17,7 +17,7 @@ const useStyles = makeStyles({
     },
 });
 
-const CustomSelect = ({ value, handleChange, menuList, width, textColor, borderColor }) => {
+const CustomSelect = ({ value, handleChange, menuList, width, textColor, borderColor ,IconComponent}) => {
     const classes = useStyles();
 
     return (
@@ -30,6 +30,7 @@ const CustomSelect = ({ value, handleChange, menuList, width, textColor, borderC
                 style={{ color: textColor, border: `1px solid ${borderColor}` }}
                 className={`capitalize font-medium text-[14px]`}
                 size='small'
+                IconComponent={IconComponent}
             >
                 {
                     menuList?.map((item, index) => {

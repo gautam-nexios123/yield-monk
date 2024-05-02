@@ -137,7 +137,7 @@ const MenuList = ({ isOpen }) => {
                     pathName === "/mysites" ? <div className={`w-[38px] h-[38px] rounded-lg flex items-center justify-center my-[10px] cursor-pointer`} onMouseEnter={() => setIsHovered("mySites")}
                         onMouseLeave={() => setIsHovered(null)} ><Image src={docIconSelected} alt='docIcon' width={18} height={18} /></div>
                         :
-                        <div className={`w-[38px] h-[38px] rounded-lg flex items-center justify-center my-[10px] cursor-pointer`}  onClick={() => navigate.push("/mysites")} onMouseEnter={() => setIsHovered("mySites")}
+                        <div className={`w-[38px] h-[38px] rounded-lg flex items-center justify-center my-[10px] cursor-pointer`} onClick={() => navigate.push("/mysites")} onMouseEnter={() => setIsHovered("mySites")}
                             onMouseLeave={() => setIsHovered(null)} ><Image src={isHovered === "mySites" ? docIconSelected : docIcon} alt='docIcon' width={18} height={18} /></div>
             }
 
@@ -151,12 +151,20 @@ const MenuList = ({ isOpen }) => {
             }
 
             {
-                isOpen ? <div className={`font-inter font-medium cursor-pointer text-[14px] py-[12px] px-[14px] rounded-lg text-[#5B6B79] flex items-center gap-2  hover:text-[#4680FF] hover:bg-[#EDF3FF]`} onMouseEnter={() => setIsHovered("adstxtmgt")}
+                isOpen ? pathName === "/adstxtmanagement" ? <div className={`font-inter font-medium cursor-pointer text-[14px] py-[12px] px-[14px] rounded-lg flex items-center gap-2  text-[#4680FF] bg-[#EDF3FF]`} onMouseEnter={() => setIsHovered("adstxtmgt")}
                     onMouseLeave={() => setIsHovered(null)} >
+                    <Image src={profileIconSelected} alt='profileIcon' width={18} height={18} />
+                    Ads.txt management
+                </div> : <div className={`font-inter font-medium cursor-pointer text-[14px] py-[12px] px-[14px] rounded-lg text-[#5B6B79] flex items-center gap-2  hover:text-[#4680FF] hover:bg-[#EDF3FF]`} onMouseEnter={() => setIsHovered("adstxtmgt")}
+                    onMouseLeave={() => setIsHovered(null)} onClick={() => navigate.push("/adstxtmanagement")} >
                     <Image src={isHovered === "adstxtmgt" ? profileIconSelected : profileIcon} alt='profileIcon' width={18} height={18} />
                     Ads.txt management
-                </div> : <div className={`w-[38px] h-[38px] rounded-lg flex items-center justify-center my-[10px] cursor-pointer`} onMouseEnter={() => setIsHovered("adstxtmgt")}
-                    onMouseLeave={() => setIsHovered(null)}><Image src={isHovered === "adstxtmgt" ? profileIconSelected : profileIcon} alt='profileIcon' width={18} height={18} /></div>
+                </div> :
+                pathName === "/adstxtmanagement" ? <div className={`w-[38px] h-[38px] rounded-lg flex items-center justify-center my-[10px] cursor-pointer`} onMouseEnter={() => setIsHovered("adstxtmgt")}
+                onMouseLeave={() => setIsHovered(null)}><Image src={profileIconSelected} alt='profileIcon' width={18} height={18} /></div>
+                :
+                <div className={`w-[38px] h-[38px] rounded-lg flex items-center justify-center my-[10px] cursor-pointer`} onMouseEnter={() => setIsHovered("adstxtmgt")} onClick={() => navigate.push("/adstxtmanagement")}
+                    onMouseLeave={() => setIsHovered(null)}><Image src={isHovered === "adstxtmgt" ? profileIconSelected : profileIcon} alt='profileIcon' width={18} height={18}  /></div>
             }
 
             {isOpen && <div className='font-inter text-[#1D2630] font-bold text-sm px-[14px] py-[12px]'>Integrations</div>}

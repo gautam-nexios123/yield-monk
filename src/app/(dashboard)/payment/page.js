@@ -89,7 +89,7 @@ const Payments = () => {
           <Tab value="Account Details" label="Account Details" className='font-inter font-medium text-[14px] capitalize' />
           <Tab value="Transactions" label="Transactions" className='font-inter font-medium text-[14px] capitalize' />
         </Tabs>
-        {value === "Transactions"  && <Button variant="outlined" className='text-[#262626] font-sans font-normal text-[14px] border-[#D9D9D9] capitalize'>Export</Button>}
+        {value === "Transactions" && <Button variant="outlined" className='text-[#262626] font-sans font-normal text-[14px] border-[#D9D9D9] capitalize'>Export</Button>}
 
       </Box>
       {
@@ -105,11 +105,16 @@ const Payments = () => {
                 >
                   {steps.map((label, index) => (
                     <Step key={index}>
+                      {
+                        isMobile > 763 ? <StepLabel className='text-[#1D2630] text-[14px] font-medium font-inter' icon={getStepIcon(index)}>
+                          <p className='text-[#5B6B79] text-[12px] font-inter '>{label.label}</p>
+                         <p>{label.name}</p> 
+                        </StepLabel> :
+                          <StepLabel className='text-[#1D2630] text-[14px] font-medium font-inter' icon={getStepIcon(index)}>
+                          
+                          </StepLabel>
+                      }
 
-                      <StepLabel className='text-[#1D2630] text-[14px] font-medium font-inter' icon={getStepIcon(index)}>
-                        <p className='text-[#5B6B79] text-[12px] font-inter '>{isMobile > 763 ? label.label : ""}</p>
-                        {isMobile > 763 ? label.name : ""}
-                      </StepLabel>
 
                     </Step>
                   ))}
