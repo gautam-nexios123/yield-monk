@@ -254,7 +254,7 @@ const MySites = () => {
     <div className='w-full'>
       {addFlag ?
         <div className='p-6 w-full'>
-          <div className='card bg-[#FAFAFA] h-[750px] rounded-lg p-6'>
+          <div className='card bg-[#FAFAFA] h-auto rounded-lg p-6'>
             <div className='flex'>
               <IconButton aria-label="back" onClick={() => setAddFlag(false)}>
                 <WestIcon />

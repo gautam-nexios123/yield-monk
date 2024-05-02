@@ -30,11 +30,9 @@ const AdsTxtManagement = () => {
         navigator.clipboard.writeText(scriptValueVerify)
             .then(() => {
                 console.log('Script code copied to clipboard', scriptValueVerify);
-                // Optionally, you can provide user feedback here
             })
             .catch(err => {
                 console.error('Failed to copy script code: ', err);
-                // Optionally, you can provide error feedback here
             });
     };
 
@@ -45,11 +43,9 @@ const AdsTxtManagement = () => {
         navigator.clipboard.writeText(scriptValueVerify1)
             .then(() => {
                 console.log('Script code copied to clipboard', scriptValueVerify1);
-                // Optionally, you can provide user feedback here
             })
             .catch(err => {
                 console.error('Failed to copy script code: ', err);
-                // Optionally, you can provide error feedback here
             });
     };
 
@@ -58,11 +54,9 @@ const AdsTxtManagement = () => {
         navigator.clipboard.writeText(scriptValueVerify2)
             .then(() => {
                 console.log('Script code copied to clipboard', scriptValueVerify2);
-                // Optionally, you can provide user feedback here
             })
             .catch(err => {
                 console.error('Failed to copy script code: ', err);
-                // Optionally, you can provide error feedback here
             });
     };
 
