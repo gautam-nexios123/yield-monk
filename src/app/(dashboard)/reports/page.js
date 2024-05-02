@@ -5,6 +5,10 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import CustomMultiSelect from '@/common/CustomMultiSelect';
 import CustomSelect from '@/common/CustomSelect';
 import CustomDateRangePicker from '@/components/dashboard/CustomDateRangePicker';
+import FilterSelect from '@/common/FilterSelect';
+import CustomButton from '@/common/CustomButton';
+import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
+import ReportGmailerrorredIcon from '@mui/icons-material/ReportGmailerrorred';
 
 const dataValueArray = [
     'Site',
@@ -59,6 +63,14 @@ const Reports = () => {
                     <div className='text-[#s000000] font-inter font-medium text-sm pb-4'>Date Range</div>
                     <CustomDateRangePicker dateRange={dateRange} setDateRange={setDateRange} />
                 </div>
+            </div>
+            <p className='text-[#000000] font-inter font-medium text-sm pt-[23px] pb-[9px]'>Filter</p>
+            <div className='w-full flex justify-between'>
+                <div className='w-[70%]'>
+                    <FilterSelect dataValueArray={dataValueArray} />
+                </div>
+                <CustomButton btnText={"Create New Report"} btnIcon={<AddCircleOutlineIcon fontSize='small' className='mr-2' />} />
+                <CustomButton btnText={"Generate Report"} btnIcon={<ReportGmailerrorredIcon fontSize='small' className='mr-2' />} />
             </div>
         </div>
     )
