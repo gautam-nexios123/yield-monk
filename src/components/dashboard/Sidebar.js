@@ -160,11 +160,11 @@ const MenuList = ({ isOpen }) => {
                     <Image src={isHovered === "adstxtmgt" ? profileIconSelected : profileIcon} alt='profileIcon' width={18} height={18} />
                     Ads.txt management
                 </div> :
-                pathName === "/adstxtmanagement" ? <div className={`w-[38px] h-[38px] rounded-lg flex items-center justify-center my-[10px] cursor-pointer`} onMouseEnter={() => setIsHovered("adstxtmgt")}
-                onMouseLeave={() => setIsHovered(null)}><Image src={profileIconSelected} alt='profileIcon' width={18} height={18} /></div>
-                :
-                <div className={`w-[38px] h-[38px] rounded-lg flex items-center justify-center my-[10px] cursor-pointer`} onMouseEnter={() => setIsHovered("adstxtmgt")} onClick={() => navigate.push("/adstxtmanagement")}
-                    onMouseLeave={() => setIsHovered(null)}><Image src={isHovered === "adstxtmgt" ? profileIconSelected : profileIcon} alt='profileIcon' width={18} height={18}  /></div>
+                    pathName === "/adstxtmanagement" ? <div className={`w-[38px] h-[38px] rounded-lg flex items-center justify-center my-[10px] cursor-pointer`} onMouseEnter={() => setIsHovered("adstxtmgt")}
+                        onMouseLeave={() => setIsHovered(null)}><Image src={profileIconSelected} alt='profileIcon' width={18} height={18} /></div>
+                        :
+                        <div className={`w-[38px] h-[38px] rounded-lg flex items-center justify-center my-[10px] cursor-pointer`} onMouseEnter={() => setIsHovered("adstxtmgt")} onClick={() => navigate.push("/adstxtmanagement")}
+                            onMouseLeave={() => setIsHovered(null)}><Image src={isHovered === "adstxtmgt" ? profileIconSelected : profileIcon} alt='profileIcon' width={18} height={18} /></div>
             }
 
             {isOpen && <div className='font-inter text-[#1D2630] font-bold text-sm px-[14px] py-[12px]'>Integrations</div>}

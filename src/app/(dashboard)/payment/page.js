@@ -40,6 +40,8 @@ const Payments = () => {
   const [activeStep, setActiveStep] = useState(0);
 
   const isMobile = getWindowWidth();
+  const orientation = isMobile > 763 ? "vertical" : "horizontal";
+
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
@@ -99,19 +101,18 @@ const Payments = () => {
               <div className='border bg-[#FAFAFA] border-[#EFEFEF] flex flex-col md:flex-row items-center p-[8px] md:p-[16px] rounded-lg md:w-[35%] w-full '>
                 <Stepper
                   activeStep={activeStep}
-                  // className={classes.stepper}
-                  orientation={isMobile > 763 ? "vertical" : "horizontal"}
-                // connector={<CustomConnector />}
+                  orientation={orientation}
                 >
                   {steps.map((label, index) => (
                     <Step key={index}>
                       {
-                        isMobile > 763 ? <StepLabel className='text-[#1D2630] text-[14px] font-medium font-inter' icon={getStepIcon(index)}>
-                          <p className='text-[#5B6B79] text-[12px] font-inter '>{label.label}</p>
-                         <p>{label.name}</p> 
-                        </StepLabel> :
+                        isMobile > 763 ?
                           <StepLabel className='text-[#1D2630] text-[14px] font-medium font-inter' icon={getStepIcon(index)}>
-                          
+                            <p className='text-[#5B6B79] text-[12px] font-inter '>{label.label}</p>
+                            <p>{label.name}</p>
+                          </StepLabel>
+                          :
+                          <StepLabel className='text-[#1D2630] text-[14px] font-medium font-inter' icon={getStepIcon(index)}>
                           </StepLabel>
                       }
 
