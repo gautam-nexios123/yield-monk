@@ -19,7 +19,6 @@ import YeildMockCode from '@/components/mysites/YeildMockCode';
 import Verify from '@/components/mysites/Verify';
 
 
-
 const tableData = [
   {
     "FirstNestedObject": {

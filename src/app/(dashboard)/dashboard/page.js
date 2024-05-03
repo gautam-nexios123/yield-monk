@@ -5,13 +5,24 @@ import { Button } from '@mui/material';
 import CustomSelect from '@/common/CustomSelect';
 import CustomDateRangePicker from '@/components/dashboard/CustomDateRangePicker';
 import EstimatedRevenu from '@/components/dashboard/EstimatedRevenu';
-import LineChart from '@/components/dashboard/LineChart';
 import PerfomanceOverView from '@/components/dashboard/PerfomanceOverView';
 import NetworkRevenue from '@/components/dashboard/NetworkRevenue';
 import CountryWise from '@/components/dashboard/CountryWise';
 import DeviceWise from '@/components/dashboard/DeviceWise';
 import SiteWiseTable from '@/components/dashboard/SiteWiseTable';
+import LineChart from '@/components/LineChart';
 
+const categoriesMonth = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', "Oct", "Nov", "Dec"]
+const seriesData = [{
+    name: 'YieldMonk',
+    data: [150, 180, 210, 190, 220, 200, 250, 280, 300, 270, 260, 240]
+},
+{
+    name: 'Original',
+    data: [40, 50, 55, 59, 49, 80, 70, 85, 110, 95, 60, 75]
+}]
+
+const colors=["#E58A00",'#4680FF']
 const Dashboard = () => {
 
     const [linkAll, setLinkAll] = useState('all');
@@ -48,7 +59,7 @@ const Dashboard = () => {
             </div>
             <EstimatedRevenu />
             <div className='my-[26px]'>
-                <LineChart />
+                <LineChart categories={categoriesMonth} topLabels={true} seriesData={seriesData} colors={colors} />
             </div>
 
             <SiteWiseTable />

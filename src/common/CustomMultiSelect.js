@@ -6,6 +6,7 @@ import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
 
 const CustomMultiSelect = ({ dataValueArray, selctedValue, setSelectedValue, checkBoxShox }) => {
     const [dropDownOpen, setDropDownOpen] = useState(false);
+    console.log("oselctedValuebject",selctedValue)
     const wrapperRef = useRef(null);
 
     useEffect(() => {

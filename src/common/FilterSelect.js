@@ -5,7 +5,7 @@ import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
 
-const FilterSelect = ({ dataValueArray }) => {
+const FilterSelect = ({ dataValueArray, nestedSelectedValue, setNestedSelectedValue }) => {
     const [dropDownOpen, setDropDownOpen] = useState(false);
     const wrapperRef = useRef(null);
 
@@ -21,6 +21,10 @@ const FilterSelect = ({ dataValueArray }) => {
         };
     }, [wrapperRef]);
 
+    const handleNestedMenu = (name) => {
+        console.log("value", name)
+    }
+
     return (
         <div ref={wrapperRef} className='relative w-full'>
             <Button variant="outlined" onClick={() => setDropDownOpen(!dropDownOpen)} className='text-[#4680FF] font-inter font-normal text-[14px] border-[#4680FF] rounded-md capitalize w-full flex justify-start'>Select Value {dropDownOpen ? <ArrowDropUpIcon /> : <ArrowDropDownIcon />}</Button>
@@ -29,8 +33,10 @@ const FilterSelect = ({ dataValueArray }) => {
                     {
                         dataValueArray?.map((item, index) => {
                             return (
-                                <div key={index} className='flex gap-3 justify-between hover:bg-[#EFEFEF] py-2 px-3 cursor-pointer'>
-                                    <label className='text-[#1E1E1E] font-inter font-semibold text-sm cursor-pointer'>{item}</label>
+                                <div key={index} className='flex gap-3 justify-between hover:bg-[#EFEFEF] py-2 px-3 cursor-pointer' onClick={() => handleNestedMenu(item)}
+
+                                >
+                                    <label className='text-[#1E1E1E] font-inter font-semibold text-sm cursor-pointer' >{item}</label>
                                     <KeyboardArrowRightIcon fontSize='small' className='text-[#5B6B79]' />
                                 </div>
 

@@ -140,16 +140,25 @@ const MenuList = ({ isOpen }) => {
                         <div className={`w-[38px] h-[38px] rounded-lg flex items-center justify-center my-[10px] cursor-pointer`} onClick={() => navigate.push("/mysites")} onMouseEnter={() => setIsHovered("mySites")}
                             onMouseLeave={() => setIsHovered(null)} ><Image src={isHovered === "mySites" ? docIconSelected : docIcon} alt='docIcon' width={18} height={18} /></div>
             }
-
             {
-                isOpen ? <div className={`font-inter font-medium cursor-pointer text-[14px] py-[12px] px-[14px] rounded-lg text-[#5B6B79] flex items-center gap-2  hover:text-[#4680FF] hover:bg-[#EDF3FF]`} onMouseEnter={() => setIsHovered("reports")}
+                isOpen ? pathName === "/reports" ? <div className={`font-inter font-medium cursor-pointer text-[14px] py-[12px] px-[14px] rounded-lg  flex items-center gap-2  text-[#4680FF] bg-[#EDF3FF]`} onMouseEnter={() => setIsHovered("reports")}
                     onMouseLeave={() => setIsHovered(null)} >
+                    <Image src={reportIconSelected} alt='report' width={18} height={18} />
+                    Reports
+                </div> : <div className={`font-inter font-medium cursor-pointer text-[14px] py-[12px] px-[14px] rounded-lg text-[#5B6B79] flex items-center gap-2  hover:text-[#4680FF] hover:bg-[#EDF3FF]`} onMouseEnter={() => setIsHovered("reports")}
+                    onMouseLeave={() => setIsHovered(null)} onClick={() => navigate.push("/reports")} >
                     <Image src={isHovered === "reports" ? reportIconSelected : reportIcon} alt='report' width={18} height={18} />
                     Reports
-                </div> : <div className={`w-[38px] h-[38px] rounded-lg flex items-center justify-center my-[10px] cursor-pointer`} onMouseEnter={() => setIsHovered("reports")}
-                    onMouseLeave={() => setIsHovered(null)} ><Image src={isHovered === "reports" ? reportIconSelected : reportIcon} alt='report' width={18} height={18} /></div>
-            }
+                </div> :
+                    pathName === "/reports" ?
+                        <div className={`w-[38px] h-[38px] rounded-lg flex items-center justify-center my-[10px] cursor-pointer`} onMouseEnter={() => setIsHovered("reports")}
+                            onMouseLeave={() => setIsHovered(null)} ><Image src={reportIconSelected} alt='report' width={18} height={18} /></div>
 
+                        :
+
+                        <div className={`w-[38px] h-[38px] rounded-lg flex items-center justify-center my-[10px] cursor-pointer`} onMouseEnter={() => setIsHovered("reports")}
+                            onMouseLeave={() => setIsHovered(null)} onClick={() => navigate.push("/reports")}><Image src={isHovered === "reports" ? reportIconSelected : reportIcon} alt='report' width={18} height={18} /></div>
+            }
             {
                 isOpen ? pathName === "/adstxtmanagement" ? <div className={`font-inter font-medium cursor-pointer text-[14px] py-[12px] px-[14px] rounded-lg flex items-center gap-2  text-[#4680FF] bg-[#EDF3FF]`} onMouseEnter={() => setIsHovered("adstxtmgt")}
                     onMouseLeave={() => setIsHovered(null)} >

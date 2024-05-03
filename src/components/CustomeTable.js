@@ -29,7 +29,7 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
     border: "none"
 }));
 
-const CustomeTable = ({ tableData, serchFilterKey, totalRowShow, pagginationShow,invoiceShow }) => {
+const CustomeTable = ({ tableData, serchFilterKey, totalRowShow, pagginationShow,invoiceShow ,totalRowShowReport}) => {
     const [currentPage, setCurrentPage] = useState(1);
     const [rowsPerPage, setRowsPerPage] = useState(5);
     const [filterValue, setFilterValue] = useState("");
@@ -154,6 +154,32 @@ const CustomeTable = ({ tableData, serchFilterKey, totalRowShow, pagginationShow
                                 5258522
                             </StyledTableCell>
                         </StyledTableRow>}
+                        {
+                            totalRowShowReport &&
+                            <StyledTableRow >
+                            <StyledTableCell align="start" colSpan={1}>
+                                Total
+                            </StyledTableCell>
+                            <StyledTableCell align="start">
+
+                            </StyledTableCell>
+                            <StyledTableCell align="start"colSpan={1} sx={{borderRight:2,borderColor:"#FAFAFA"}} >
+                                5258522
+                            </StyledTableCell>
+                            <StyledTableCell align="start"colSpan={1} >
+                                52
+                            </StyledTableCell>
+                            <StyledTableCell align="start"colSpan={1} >
+                                85932
+                            </StyledTableCell>
+                            <StyledTableCell align="start"colSpan={1} >
+                                9622
+                            </StyledTableCell>
+                            <StyledTableCell align="start"colSpan={1} >
+                                96322
+                            </StyledTableCell>
+                        </StyledTableRow>
+                        }
                     </TableBody>
                 </Table>
 
