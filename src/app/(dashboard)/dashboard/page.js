@@ -43,12 +43,12 @@ const Dashboard = () => {
     };
 
     return (
-        <div className='w-full relative bg-white px-[25px] my-[31px]'>
+        <div className='w-full relative bg-white dark:bg-[#1E1E1E] px-[25px] my-[31px]'>
             <div className='w-full flex items-center justify-between border border-[#EFEFEF] p-[16px] rounded-lg'>
                 <div className='font-sans font-bold text-xl flex items-center gap-2'>
                     <ArrowBackIcon className='cursor-pointer' /> Welcome, Name!
                 </div>
-                <Button variant="outlined" className='text-[#262626] font-sans font-normal text-[14px] border-[#D9D9D9] capitalize'>Export</Button>
+                <Button variant="outlined" className='text-[#262626] dark:text-white font-sans font-normal text-[14px] border-[#D9D9D9] capitalize'>Export</Button>
             </div>
             <div className='w-full mt-[17px] mb-[26px]'>
                 <div className='flex flex-col md:flex-row gap-[24px] justify-end'>

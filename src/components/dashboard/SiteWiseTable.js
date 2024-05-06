@@ -25,7 +25,7 @@ const SiteWiseTable = () => {
         <div className='w-fulll border border-[#DBE0E5] rounded-lg p-[20px] mb-[24px]'>
             <div className='flex items-center justify-between'>
                 <MoreVertIcon className='text-[#5B6B79] cursor-pointer' />
-                <div className='text-[#1D2630] font-semibold font-inter text-base'>Site Wise</div>
+                <div className='text-[#1D2630] dark:text-white font-semibold font-inter text-base'>Site Wise</div>
                 <CustomSelect value={day} handleChange={handleChangeDay} menuList={["today", "yesterday", "last 7 days", "last 30 days", "this month", "last month"]} width={100} textColor={"#1E1E1E"} borderColor={"#DBE0E5"} />
             </div>
             <div className='mt-5'>

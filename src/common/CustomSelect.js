@@ -35,7 +35,7 @@ const CustomSelect = ({ value, handleChange, menuList, width, textColor, borderC
                 {
                     menuList?.map((item, index) => {
                         return (
-                            <MenuItem key={index} value={item} className='capitalize text-[#1E1E1E] font-medium text-[14px]'>{item}</MenuItem>
+                            <MenuItem key={index} value={item} className='capitalize text-[#1E1E1E] dark:text-white font-medium text-[14px]'>{item}</MenuItem>
                         )
                     })
                 }

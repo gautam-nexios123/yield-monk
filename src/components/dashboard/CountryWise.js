@@ -8,7 +8,7 @@ const CountryWise = () => {
         <div className='border border-[#EFEFEF] rounded-lg p-[20px] my-[26px]'>
             <div className='flex items-center justify-between'>
                 <MoreVertIcon className='text-[#5B6B79] cursor-pointer' />
-                <div className='text-[#1D2630] font-semibold font-inter text-base'>Country Wise</div>
+                <div className='text-[#1D2630] dark:text-white font-semibold font-inter text-base'>Country Wise</div>
                 <div className='text-[#4680FF] font-normal font-inter text-sm cursor-pointer'>View Reports</div>
             </div>
             <div className='w-[100%] flex items-center justify-center mt-[41px]'>
@@ -16,42 +16,42 @@ const CountryWise = () => {
             </div>
             <div className='flex flex-col flex-wrap sm:flex-row items-center justify-between gap-[20px] w-full mt-[40px]'>
                 <div className='border border-[#DBE0E5] rounded p-[20px] w-full md:w-[46%] xl:w-[30%]'>
-                    <div className='text-[#5B6B79] font-inter font-medium text-sm pb-[5px] text-center'>
+                    <div className='text-[#5B6B79] dark:text-white font-inter font-medium text-sm pb-[5px] text-center'>
                         <CircleIcon className={`text-[8px] text-[#1D2630] mr-2`} />
                         China
                     </div>
                     <div className='text-[#1D2630] font-inter font-semibold text-base text-center'>10%</div>
                 </div>
                 <div className='border border-[#DBE0E5] rounded p-[20px] w-full md:w-[46%] xl:w-[30%]'>
-                    <div className='text-[#5B6B79] font-inter font-medium text-sm pb-[5px] text-center'>
+                    <div className='text-[#5B6B79] dark:text-white font-inter font-medium text-sm pb-[5px] text-center'>
                         <CircleIcon className={`text-[8px] text-[#4680FF] mr-2`} />
                         India
                     </div>
                     <div className='text-[#1D2630] font-inter font-semibold text-base text-center'>40%</div>
                 </div>
                 <div className='border border-[#DBE0E5] rounded p-[20px] w-full md:w-[46%] xl:w-[30%]'>
-                    <div className='text-[#5B6B79] font-inter font-medium text-sm pb-[5px] text-center'>
+                    <div className='text-[#5B6B79] dark:text-white font-inter font-medium text-sm pb-[5px] text-center'>
                         <CircleIcon className={`text-[8px] text-[#6293FF] mr-2`} />
                         USA
                     </div>
                     <div className='text-[#1D2630] font-inter font-semibold text-base text-center'>20%</div>
                 </div>
                 <div className='border border-[#DBE0E5] rounded p-[20px] w-full md:w-[46%] xl:w-[30%]'>
-                    <div className='text-[#5B6B79] font-inter font-medium text-sm pb-[5px] text-center'>
+                    <div className='text-[#5B6B79] dark:text-white font-inter font-medium text-sm pb-[5px] text-center'>
                         <CircleIcon className={`text-[8px] text-[#CFD1D4] mr-2`} />
                         Cannada
                     </div>
                     <div className='text-[#1D2630] font-inter font-semibold text-base text-center'>10%</div>
                 </div>
                 <div className='border border-[#DBE0E5] rounded p-[20px] w-full md:w-[46%] xl:w-[30%]'>
-                    <div className='text-[#5B6B79] font-inter font-medium text-sm pb-[5px] text-center'>
+                    <div className='text-[#5B6B79] dark:text-white font-inter font-medium text-sm pb-[5px] text-center'>
                         <CircleIcon className={`text-[8px] text-[#5B6B79] mr-2`} />
                         UK
                     </div>
                     <div className='text-[#1D2630] font-inter font-semibold text-base text-center'>15%</div>
                 </div>
                 <div className='border border-[#DBE0E5] rounded p-[20px] w-full md:w-[46%] xl:w-[30%]'>
-                    <div className='text-[#5B6B79] font-inter font-medium text-sm pb-[5px] text-center'>
+                    <div className='text-[#5B6B79] dark:text-white font-inter font-medium text-sm pb-[5px] text-center'>
                         <CircleIcon className={`text-[8px] text-[#5B6B79] mr-2`} />
                         Australia
                     </div>

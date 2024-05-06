@@ -8,14 +8,14 @@ const DeviceWise = () => {
     return (
         <div className='border border-[#EFEFEF] rounded-lg p-[20px] my-[26px]'>
             <div className='flex items-center justify-between'>
-                <MoreVertIcon className='text-[#5B6B79] cursor-pointer' />
-                <div className='text-[#1D2630] font-semibold font-inter text-base'>Device Wise</div>
+                <MoreVertIcon className='text-[#5B6B79] dark:text-white cursor-pointer' />
+                <div className='text-[#1D2630] dark:text-white font-semibold font-inter text-base'>Device Wise</div>
                 <div className='text-[#4680FF] font-normal font-inter text-sm cursor-pointer'>View Reports</div>
             </div>
             <div className='w-[100%] flex items-center justify-center mt-[24px] relative'>
                 <DevicePieChart series={[52, 48, 46, 42]} labels={['A', 'B', "C", "D"]} colors={['#047BEA', '#F98600', '#15D28E', '#E6F3FF']} />
                 <div className='absolute bg-white w-[150px] h-[150px] rounded-full shadow-2xl border-[6px] border-[#B2DAFE] flex items-center justify-center flex-col'>
-                    <div className='text-[#1D2630] font-inter font-semibold text-xl pb-1'>$560</div>
+                    <div className='text-[#1D2630] dark:text-white font-inter font-semibold text-xl pb-1'>$560</div>
                     <div className='text-[#5B6B79] font-inter font-medium text-sm'>Total income</div>
                 </div>
             </div>
