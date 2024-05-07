@@ -195,28 +195,28 @@ const Reports = () => {
     }
 
     return (
-        <div className='w-full relative bg-white px-[25px] my-[31px]'>
+        <div className='w-full relative bg-white dark:bg-[#1E1E1E] px-[25px] my-[31px]'>
             <div className='w-full flex items-center justify-between border border-[#EFEFEF] p-[16px] rounded-lg'>
                 <div className='font-sans font-bold text-xl flex items-center gap-2'>
                     <ArrowBackIcon className='cursor-pointer' />Reports
                 </div>
-                <Button variant="outlined" className='text-[#262626] font-sans font-normal text-[14px] border-[#D9D9D9] capitalize'>Export</Button>
+                <Button variant="outlined" className='text-[#262626] dark:text-white font-sans font-normal text-[14px] border-[#D9D9D9] capitalize'>Export</Button>
             </div>
             <div className='flex flex-col sm:flex-row justify-between gap-[20px] sm:items-center mt-[35px]'>
-                <div className=''>
+                <div>
                     <div className='text-[#s000000] font-inter font-medium text-sm pb-4'>Report By</div>
                     <CustomMultiSelect dataValueArray={dataValueArray} selctedValue={selctedValue} setSelectedValue={setSelectedValue} checkBoxShox={true} />
                 </div>
-                <div className=''>
+                <div>
                     <div className='text-[#s000000] font-inter font-medium text-sm pb-4'>Interval</div>
                     <CustomSelect value={interVal} handleChange={handleChangeAll} menuList={["Daily", "Monthly", "Cumulative"]} width={90} textColor={"#4680FF"} borderColor={"#4680FF"} />
                 </div>
-                <div className=''>
+                <div>
                     <div className='text-[#s000000] font-inter font-medium text-sm pb-4'>Date Range</div>
                     <CustomDateRangePicker dateRange={dateRange} setDateRange={setDateRange} />
                 </div>
             </div>
-            <p className='text-[#000000] font-inter font-medium text-sm pt-[23px] pb-[9px]'>Filter</p>
+            <p className='text-[#000000] dark:text-white font-inter font-medium text-sm pt-[23px] pb-[9px]'>Filter</p>
             <div className='w-full flex justify-between flex-col xl:flex-row xl:gap-8 gap-0'>
                 <div className='w-[70%] mb-3'>
                     <FilterSelect dataValueArray={dataValueArray} nestedSelectedValue={nestedSelectedValue} setNestedSelectedValue={setNestedSelectedValue} />
@@ -227,7 +227,7 @@ const Reports = () => {
                 <CustomButton btnText={"Generate Report"} btnIcon={<ReportGmailerrorredIcon fontSize='small' className='mr-2' />} btnHeight={"37px"} />
             </div>
             <div className='w-full mt-8'>
-                <p className='font-inter font-medium text-[14px] text-black'>Report Name</p>
+                <p className='font-inter font-medium text-[14px] text-black dark:text-white'>Report Name</p>
                 <div className='flex gap-6 justify-start mt-3'>
                     <FormControl sx={{ width: '50%', }} variant="outlined">
                         <OutlinedInput
@@ -236,6 +236,7 @@ const Reports = () => {
                             inputProps={{
                                 'aria-label': 'organisation name',
                             }}
+                            className='text-black dark:text-white'
                             sx={{ borderRadius: "8px !important", height: "42px" }}
 
                         />
@@ -255,18 +256,18 @@ const Reports = () => {
                         setRevenue(true)
                         handleReset()
                     }}>
-                        <p className='font-inter font-medium text-[14px] text-[#4680FF]'>Net Revenue</p>
+                        <p className='font-inter font-medium text-[14px] text-[#4680FF] '>Net Revenue</p>
                     </div>
-                    <div className={`w-[20%] h-[25%] flex justify-center cursor-pointer px-[16px] py-[9px] ${ymPageView ? "bg-[#FFF9F0]" : "bg-transparent"} ${ymPageView ? "text-[#E58A00]" : "text-[#1E1E1E]"}`} style={{ borderTopRightRadius: "8px", borderTopLeftRadius: "8px" }} onClick={() => handleAddData("Page Views")}>
+                    <div className={`w-[20%] h-[25%] flex justify-center cursor-pointer px-[16px] py-[9px] ${ymPageView ? "bg-[#FFF9F0]" : "bg-transparent"} ${ymPageView ? "text-[#E58A00]" : "text-[#1E1E1E] dark:text-white"}`} style={{ borderTopRightRadius: "8px", borderTopLeftRadius: "8px" }} onClick={() => handleAddData("Page Views")}>
                         <p className='font-inter font-medium text-[14px]'>YM Page Views</p>
                     </div>
-                    <div className={`w-[20%] h-[25%] flex justify-center cursor-pointer px-[16px] py-[9px] ${ymPageRPM ? "bg-[#FFF6F6]" : "bg-transparent"} ${ymPageRPM ? "text-[#F02020]" : "text-[#1E1E1E]"}`} style={{ borderTopRightRadius: "8px", borderTopLeftRadius: "8px" }} onClick={() => handleAddData("Page RPM")}>
+                    <div className={`w-[20%] h-[25%] flex justify-center cursor-pointer px-[16px] py-[9px] ${ymPageRPM ? "bg-[#FFF6F6]" : "bg-transparent"} ${ymPageRPM ? "text-[#F02020]" : "text-[#1E1E1E] dark:text-white"}`} style={{ borderTopRightRadius: "8px", borderTopLeftRadius: "8px" }} onClick={() => handleAddData("Page RPM")}>
                         <p className='font-inter font-medium text-[14px]'>YM Page RPM</p>
                     </div>
-                    <div className={`w-[20%] h-[25%] flex justify-center cursor-pointer px-[16px] py-[9px] ${impression ? "bg-[#F2FFFB]" : "bg-transparent"} ${impression ? "text-[#2CA87F]" : "text-[#1E1E1E]"}`} style={{ borderTopRightRadius: "8px", borderTopLeftRadius: "8px" }} onClick={() => handleAddData("Impressions")}>
+                    <div className={`w-[20%] h-[25%] flex justify-center cursor-pointer px-[16px] py-[9px] ${impression ? "bg-[#F2FFFB]" : "bg-transparent"} ${impression ? "text-[#2CA87F]" : "text-[#1E1E1E] dark:text-white"}`} style={{ borderTopRightRadius: "8px", borderTopLeftRadius: "8px" }} onClick={() => handleAddData("Impressions")}>
                         <p className='font-inter font-medium text-[14px]'>Impressions</p>
                     </div>
-                    <div className={`w-[20%] h-[25%] flex justify-center cursor-pointer px-[16px] py-[9px]  ${adCPM ? "bg-[#EBF6FF]" : "bg-transparent"} ${adCPM ? "text-[#194569]" : "text-[#1E1E1E]"} `} style={{ borderTopRightRadius: "8px", borderTopLeftRadius: "8px" }} onClick={() => handleAddData("Ad eCPM")}>
+                    <div className={`w-[20%] h-[25%] flex justify-center cursor-pointer px-[16px] py-[9px]  ${adCPM ? "bg-[#EBF6FF]" : "bg-transparent"} ${adCPM ? "text-[#194569]" : "text-[#1E1E1E] dark:text-white"} `} style={{ borderTopRightRadius: "8px", borderTopLeftRadius: "8px" }} onClick={() => handleAddData("Ad eCPM")}>
                         <p className='font-inter font-medium text-[14px]'>Ad eCPM</p>
                     </div>
                 </div>

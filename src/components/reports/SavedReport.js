@@ -1,7 +1,7 @@
 "use client"
 import { Button, Chip, Dialog, DialogActions, DialogContent, DialogTitle, FormControl, IconButton, InputAdornment, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TextField, tableCellClasses } from '@mui/material';
 import { styled } from '@mui/styles';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import CloseIcon from '@mui/icons-material/Close';
 import SearchIcon from '@mui/icons-material/Search';
 import Image from 'next/image';
@@ -9,6 +9,7 @@ import EyeIcon from "../../assets/mysites/eye.svg";
 import EditIcon from "../../assets/mysites/edit.svg";
 import DeleteIcon from "../../assets/others/delete.svg";
 import CustomSelect from '@/common/CustomSelect';
+import { useTheme } from 'next-themes';
 
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -24,7 +25,7 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
 
 const StyledTableRow = styled(TableRow)(({ theme }) => ({
     '&:nth-of-type(even)': {
-        backgroundColor: "#FAFAFA",
+        backgroundColor:  "#FAFAFA",
     },
     // hide last border
     '&:last-child td, &:last-child th': {
@@ -33,29 +34,35 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
     border: "none"
 }));
 
-const BootstrapDialog = styled(Dialog)(({ theme }) => ({
-    '& .MuiDialogContent-root': {
-        padding: "16px",
-    },
-}));
 
 const SavedReport = ({handleCloseReport,sitetableData,openReport}) => {
     const [searchValue, setSearchValue] = useState("");
     const [sortValue, setSortValue] = useState("Sort By");
+    const [savedDialogFlag, setSavedDialogFlag] = useState(false);
+    const {theme} = useTheme();
 
     const handleSortChange = (event) => {
         setSortValue(event.target.value);
     }
+    useEffect(() => {
+        setSavedDialogFlag(true);
+      }, [])
 
     return (
-        <BootstrapDialog
+        <Dialog
             onClose={handleCloseReport}
             aria-labelledby="customized-dialog-title"
             open={openReport}
             maxWidth={1500}
+            sx={{
+                '& .MuiDialogContent-root': {
+                    padding: "16px",
+                    backgroundColor: savedDialogFlag && theme === "light" ? "white" : "#1E1E1E"
+                }, 
+            }}
 
         >
-            <DialogTitle className='font-inter font-semibold text-[16px] text-[#1E1E1E]' sx={{ m: 0, p: 2 }} id="customized-dialog-title">
+            <DialogTitle className='font-inter font-semibold text-[16px] text-[#1E1E1E] dark:text-white' sx={{ m: 0, p: 2 ,backgroundColor: savedDialogFlag && theme === "light" ? "white" : "#1E1E1E"}} id="customized-dialog-title">
                 Saved Reports
             </DialogTitle>
             <IconButton
@@ -78,7 +85,7 @@ const SavedReport = ({handleCloseReport,sitetableData,openReport}) => {
                                 size="small"
                                 variant="outlined"
                                 placeholder='Search sites...'
-                                className='font-inter font-normal text-[14px]'
+                                className='font-inter font-normal text-[14px] rounded-lg'
                                 sx={{ backgroundColor: "#F8F9FA" }}
                                 value={searchValue}
                                 onChange={(e) => setSearchValue(e.target.value)}
@@ -88,6 +95,10 @@ const SavedReport = ({handleCloseReport,sitetableData,openReport}) => {
                                             <SearchIcon />
                                         </InputAdornment>
                                     ),
+                                    style: {
+                                        backgroundColor: savedDialogFlag && theme === 'dark' ? '#1E1E1E': '#F8F9FA' ,
+                                        color : savedDialogFlag && theme === "dark" ? "white" : "black"
+                                    }
 
                                 }}
                             />
@@ -166,12 +177,12 @@ const SavedReport = ({handleCloseReport,sitetableData,openReport}) => {
                     </TableContainer>
                 </div>
             </DialogContent>
-            <DialogActions className='border border-[#F0F0F0] flex justify-between px-[16px] py-[10x]' >
-                <Button variant="outlined" className='text-[#1D2630] font-inter font-medium rounded-full py-2 text-[14px] border-[#D9D9D9] capitalize' onClick={handleCloseReport} >Back</Button>
+            <DialogActions className='border-t-[1px] border-[#F0F0F0] flex justify-between px-[16px] py-[10x]'  sx={{  backgroundColor: savedDialogFlag && theme === "light" ? "white" : "#1E1E1E" }} >
+                <Button variant="outlined" className='text-[#1D2630] dark:text-white font-inter font-medium rounded-full py-2 text-[14px] border-[#D9D9D9] capitalize' onClick={handleCloseReport} >Back</Button>
                 <Button variant='contained' className=' w-[70px] h-[40px]  bg-[#4680FF] rounded-full capitalize' onClick={handleCloseReport}>Done</Button>
 
             </DialogActions>
-        </BootstrapDialog>
+        </Dialog>
     )
 }
 

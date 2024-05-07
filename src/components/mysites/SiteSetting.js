@@ -14,9 +14,9 @@ const SiteSetting = ({ scriptValueSetting, setScriptValueSetting, handleCopyCode
       };
 
     return (
-        <div className='w-full  relative bg-white px-[0px] my-[31px]'>
+        <div className='w-full  relative bg-white dark:bg-[#1E1E1E] px-[0px] my-[31px]'>
             <div className='w-full border  border-[#EFEFEF] px-[20px] py-[40px] rounded-lg'>
-                <p className='text-[20px] text-[#1D2630] font-inter font-medium'>YM Head Code</p>
+                <p className='text-[20px] text-[#1D2630] dark:text-white font-inter font-medium'>YM Head Code</p>
                 <p className='text-[14px] text-[#5B6B79] font-inter font-normal'>Copy and paste this snippet in the head tag of your website</p>
                 <div className='flex mt-8 flex-col md:flex-row'>
                     <FormControl sx={{ width: '100%', }} >
@@ -38,7 +38,7 @@ const SiteSetting = ({ scriptValueSetting, setScriptValueSetting, handleCopyCode
 
                 <Button variant='outlined' className='w-[107px] h-[40px] px-[16px] py-[9x] rounded-full capitalize mt-5' onClick={handleCopyCodeVerifySetting}>Copy Code</Button>
                 <div className='mt-10'>
-                    <p className='text-[20px] text-[#1D2630] font-inter font-medium'>Manager Block List</p>
+                    <p className='text-[20px] text-[#1D2630] dark:text-white font-inter font-medium'>Manager Block List</p>
                     <p className='text-[14px] text-[#5B6B79] font-inter font-normal mt-2'>Block Yield Monk ads on selected URLs of the website</p>
 
                     <div className='flex gap-5 mt-8 flex-col md:flex-row'>
@@ -49,6 +49,7 @@ const SiteSetting = ({ scriptValueSetting, setScriptValueSetting, handleCopyCode
                                 inputProps={{
                                     'aria-label': 'organisation name',
                                 }}
+                                className='text-[#1D2630] dark:text-white'
                                 sx={{ borderRadius: "8px !important", padding: "10px" }}
                                 placeholder='Site Name'
                                 value={"Enter comma separated URLs or URL patterns to block Yield Monk Ads"}
@@ -60,7 +61,7 @@ const SiteSetting = ({ scriptValueSetting, setScriptValueSetting, handleCopyCode
 
                 </div>
                 <div className='mt-10'>
-                    <p className='text-[20px] text-[#1D2630] font-inter font-medium'>Manage Refresh With Line Item IDs</p>
+                    <p className='text-[20px] text-[#1D2630] dark:text-white font-inter font-medium'>Manage Refresh With Line Item IDs</p>
                     <p className='text-[14px] text-[#5B6B79] font-inter font-normal mt-2'>Block the following line item IDs from getting refreshed</p>
                     <div className='mt-3'>
                         <div className='flex gap-2 my-5 flex-col sm:flex-row'>
@@ -73,7 +74,7 @@ const SiteSetting = ({ scriptValueSetting, setScriptValueSetting, handleCopyCode
                 </div>
                 <div className='flex flex-col md:flex-row justify-end gap-3 mt-6'>
                     <FormControl variant="outlined">
-                        <Button variant="outlined" className='text-[#1D2630] font-inter font-medium rounded-lg py-2 text-[14px] border-[#D9D9D9] capitalize' startIcon={<WestIcon />} onClick={() => {
+                        <Button variant="outlined" className='text-[#1D2630] dark:text-white font-inter font-medium rounded-lg py-2 text-[14px] border-[#D9D9D9] capitalize' startIcon={<WestIcon />} onClick={() => {
                           setManageSiteFlag(false)
                         }} >Back</Button>
 

@@ -1,17 +1,11 @@
 "use client"
 import { Button, Dialog, DialogActions, DialogContent, DialogTitle, FormControl, IconButton, OutlinedInput } from '@mui/material';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import CloseIcon from '@mui/icons-material/Close';
 import CustomSelect from '@/common/CustomSelect';
 import { styled } from '@mui/styles';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-
-
-const BootstrapDialog = styled(Dialog)(({ theme }) => ({
-    '& .MuiDialogContent-root': {
-        padding: "16px",
-    },
-}));
+import { useTheme } from 'next-themes';
 
 const ScheduleDialog = ({ handleCloseSchedule, openSchedule }) => {
 
@@ -19,7 +13,8 @@ const ScheduleDialog = ({ handleCloseSchedule, openSchedule }) => {
     const [emailValue, setEmailValue] = useState("");
     const [weekValue, setWeekValue] = useState("Monday");
     const [monthValueDate, setMonthValueDate] = useState("1");
-
+    const [scheduleFlag, setScheduleFlag] = useState(false)
+    const {theme} = useTheme();
 
     const handleFrequencyChange = (event) => {
         setFrequencyValue(event.target.value);
@@ -38,15 +33,26 @@ const ScheduleDialog = ({ handleCloseSchedule, openSchedule }) => {
         setMonthValueDate(event.target.value);
     }
 
+    useEffect(() => {
+      setScheduleFlag(true);
+    }, [])
+    
+
     return (
-        <BootstrapDialog
+        <Dialog
             onClose={handleCloseSchedule}
             aria-labelledby="customized-dialog-title"
             open={openSchedule}
             fullWidth
-
+            sx={{
+                '& .MuiDialogContent-root': {
+                    padding: "16px",
+                    backgroundColor: scheduleFlag && theme === "light" ? "white" : "#1E1E1E"
+                }, 
+            }}
+          
         >
-            <DialogTitle className='font-inter font-semibold text-[16px] text-[#1E1E1E]' sx={{ m: 0, p: 2 }} id="customized-dialog-title">
+            <DialogTitle className='font-inter font-semibold text-[16px] text-[#1E1E1E] dark:text-white' sx={{ m: 0, p: 2,backgroundColor: scheduleFlag && theme === "light" ? "white" : "#1E1E1E" }} id="customized-dialog-title">
                 Schedule Report
             </DialogTitle>
             <IconButton
@@ -63,7 +69,7 @@ const ScheduleDialog = ({ handleCloseSchedule, openSchedule }) => {
             </IconButton>
             <DialogContent>
                 <div>
-                    <p className='font-inter font-normal text-[14px] text-[#1E1E1E]'>This is Card</p>
+                    <p className='font-inter font-normal text-[14px] text-[#1E1E1E] dark:text-white'>This is Card</p>
                     <FormControl sx={{ width: '100%', }} className='mt-2' variant="outlined">
                         <label className='font-inter font-normal text-[14px] mb-2 text-[#6F747F]'><span className='text-[#DC2626]'>*</span> Report Name</label>
                         <OutlinedInput
@@ -72,6 +78,7 @@ const ScheduleDialog = ({ handleCloseSchedule, openSchedule }) => {
                             inputProps={{
                                 'aria-label': 'organisation name',
                             }}
+                            className='text-black dark:text-white'
                             sx={{ borderRadius: "8px !important", height: "40px" }}
                             placeholder='Name'
                         />
@@ -121,12 +128,12 @@ const ScheduleDialog = ({ handleCloseSchedule, openSchedule }) => {
                     </div>
                 </div>
             </DialogContent>
-            <DialogActions className='border border-[#F0F0F0] flex justify-between px-[16px] py-[10x]' >
-                <Button variant="outlined" className='text-[#1D2630] font-inter font-medium rounded-full py-2 text-[14px] border-[#D9D9D9] capitalize' onClick={handleCloseSchedule} >Back</Button>
+            <DialogActions className='border-t-[1px] border-[#F0F0F0] flex justify-between px-[16px] py-[10x]'   sx={{  backgroundColor: scheduleFlag && theme === "light" ? "white" : "#1E1E1E" }} >
+                <Button variant="outlined" className='text-[#1D2630] dark:text-white font-inter font-medium rounded-full py-2 text-[14px] border-[#D9D9D9] capitalize' onClick={handleCloseSchedule} >Back</Button>
                 <Button variant='contained' className=' w-[70px] h-[40px]  bg-[#4680FF] rounded-full capitalize' onClick={handleCloseSchedule}>Save</Button>
 
             </DialogActions>
-        </BootstrapDialog>
+        </Dialog>
     )
 }
 

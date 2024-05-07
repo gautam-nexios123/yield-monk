@@ -20,42 +20,42 @@ const CountryWise = () => {
                         <CircleIcon className={`text-[8px] text-[#1D2630] mr-2`} />
                         China
                     </div>
-                    <div className='text-[#1D2630] font-inter font-semibold text-base text-center'>10%</div>
+                    <div className='text-[#1D2630] dark:text-white font-inter font-semibold text-base text-center'>10%</div>
                 </div>
                 <div className='border border-[#DBE0E5] rounded p-[20px] w-full md:w-[46%] xl:w-[30%]'>
                     <div className='text-[#5B6B79] dark:text-white font-inter font-medium text-sm pb-[5px] text-center'>
                         <CircleIcon className={`text-[8px] text-[#4680FF] mr-2`} />
                         India
                     </div>
-                    <div className='text-[#1D2630] font-inter font-semibold text-base text-center'>40%</div>
+                    <div className='text-[#1D2630] dark:text-white font-inter font-semibold text-base text-center'>40%</div>
                 </div>
                 <div className='border border-[#DBE0E5] rounded p-[20px] w-full md:w-[46%] xl:w-[30%]'>
                     <div className='text-[#5B6B79] dark:text-white font-inter font-medium text-sm pb-[5px] text-center'>
                         <CircleIcon className={`text-[8px] text-[#6293FF] mr-2`} />
                         USA
                     </div>
-                    <div className='text-[#1D2630] font-inter font-semibold text-base text-center'>20%</div>
+                    <div className='text-[#1D2630] dark:text-white font-inter font-semibold text-base text-center'>20%</div>
                 </div>
                 <div className='border border-[#DBE0E5] rounded p-[20px] w-full md:w-[46%] xl:w-[30%]'>
                     <div className='text-[#5B6B79] dark:text-white font-inter font-medium text-sm pb-[5px] text-center'>
                         <CircleIcon className={`text-[8px] text-[#CFD1D4] mr-2`} />
                         Cannada
                     </div>
-                    <div className='text-[#1D2630] font-inter font-semibold text-base text-center'>10%</div>
+                    <div className='text-[#1D2630] dark:text-white font-inter font-semibold text-base text-center'>10%</div>
                 </div>
                 <div className='border border-[#DBE0E5] rounded p-[20px] w-full md:w-[46%] xl:w-[30%]'>
                     <div className='text-[#5B6B79] dark:text-white font-inter font-medium text-sm pb-[5px] text-center'>
                         <CircleIcon className={`text-[8px] text-[#5B6B79] mr-2`} />
                         UK
                     </div>
-                    <div className='text-[#1D2630] font-inter font-semibold text-base text-center'>15%</div>
+                    <div className='text-[#1D2630] dark:text-white font-inter font-semibold text-base text-center'>15%</div>
                 </div>
                 <div className='border border-[#DBE0E5] rounded p-[20px] w-full md:w-[46%] xl:w-[30%]'>
                     <div className='text-[#5B6B79] dark:text-white font-inter font-medium text-sm pb-[5px] text-center'>
                         <CircleIcon className={`text-[8px] text-[#5B6B79] mr-2`} />
                         Australia
                     </div>
-                    <div className='text-[#1D2630] font-inter font-semibold text-base text-center'>5%</div>
+                    <div className='text-[#1D2630] dark:text-white font-inter font-semibold text-base text-center'>5%</div>
                 </div>
             </div>
         </div>

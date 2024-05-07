@@ -5,14 +5,13 @@ import Image from 'next/image';
 import darkIcon from "../../assets/others/dark.svg";
 import { useTheme } from 'next-themes';
 
-const ThemeMenu = ({ handleChange, value ,themRef}) => {
+const ThemeMenu = ({ handleChange, value }) => {
 
     const {theme,setTheme} = useTheme();
-    console.log("theme",theme)
   
 
     return (
-        <div ref={themRef} className='absolute z-10 right-44 top-20 shadow-lg rounded-xl' >
+        <div className='absolute z-10 right-1 top-14 shadow-lg rounded-xl' >
             <Box sx={{ width: '100%' }}>
                 <Tabs
                     onChange={handleChange}

@@ -58,7 +58,7 @@ const FilterSelect = ({ dataValueArray, nestedSelectedValue, setNestedSelectedVa
                                     <div key={index} className='flex gap-3 justify-between hover:bg-[#EFEFEF] py-2 px-3 cursor-pointer' onClick={() => handleNestedMenu(item)}
 
                                     >
-                                        <label className='text-[#1E1E1E] font-inter font-semibold text-sm cursor-pointer' >{item}</label>
+                                        <label className='text-[#1E1E1E] font-inter font-semibold text-sm cursor-pointer'>{item}</label>
                                         <KeyboardArrowRightIcon fontSize='small' className='text-[#5B6B79]' />
                                     </div>
 
@@ -69,7 +69,7 @@ const FilterSelect = ({ dataValueArray, nestedSelectedValue, setNestedSelectedVa
                 }
 
                 {
-                    multiDropDownOpen && <div className='absolute z-10 bg-[#F8F9FA] p-3 rounded shadow-lg right-0 top-[80px] !w-[250px]'>
+                    multiDropDownOpen && <div className='absolute z-10 bg-[#F8F9FA] dark:bg-white p-3 rounded shadow-lg right-0 top-[80px] !w-[250px]'>
                         {
                             multiSelectData?.map((item, index) => {
                                 return (
@@ -84,7 +84,6 @@ const FilterSelect = ({ dataValueArray, nestedSelectedValue, setNestedSelectedVa
                     </div>
                 }
             </div>
-            {/* <CustomMultiSelect dataValueArray={multiSelectData} selctedValue={multiSelectValue} setSelectedValue={setMultiSelectValue} checkBoxShox={true} /> */}
         </>
     )
 }

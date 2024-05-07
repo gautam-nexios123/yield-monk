@@ -88,17 +88,17 @@ const Payments = () => {
           indicatorColor="primary"
           aria-label="secondary tabs example"
         >
-          <Tab value="Account Details" label="Account Details" className='font-inter font-medium text-[14px] capitalize' />
-          <Tab value="Transactions" label="Transactions" className='font-inter font-medium text-[14px] capitalize' />
+          <Tab value="Account Details" label="Account Details" className='text-[#262626] dark:text-white font-inter font-medium text-[14px] capitalize' />
+          <Tab value="Transactions" label="Transactions" className='text-[#262626] dark:text-white font-inter font-medium text-[14px] capitalize' />
         </Tabs>
-        {value === "Transactions" && <Button variant="outlined" className='text-[#262626] font-sans font-normal text-[14px] border-[#D9D9D9] capitalize'>Export</Button>}
+        {value === "Transactions" && <Button variant="outlined" className='text-[#262626] dark:text-white font-sans font-normal text-[14px] border-[#D9D9D9] capitalize'>Export</Button>}
 
       </Box>
       {
         value === "Account Details" && (
-          <div className='w-full relative bg-white px-[0px] my-[31px]'>
+          <div className='w-full relative bg-white dark:bg-[#1E1E1E] px-[0px] my-[31px]'>
             <div className='w-full flex-col md:flex-row flex border border-[#EFEFEF] p-[16px] rounded-lg'>
-              <div className='border bg-[#FAFAFA] border-[#EFEFEF] flex flex-col md:flex-row items-center p-[8px] md:p-[16px] rounded-lg md:w-[35%] w-full '>
+              <div className='border bg-[#FAFAFA] dark:bg-[#1E1E1E] border-[#EFEFEF] flex flex-col md:flex-row items-center p-[8px] md:p-[16px] rounded-lg md:w-[35%] w-full '>
                 <Stepper
                   activeStep={activeStep}
                   orientation={orientation}
@@ -107,12 +107,12 @@ const Payments = () => {
                     <Step key={index}>
                       {
                         isMobile > 763 ?
-                          <StepLabel className='text-[#1D2630] text-[14px] font-medium font-inter' icon={getStepIcon(index)}>
+                          <StepLabel className='text-[#1D2630] dark:text-white text-[14px] font-medium font-inter' icon={getStepIcon(index)}>
                             <p className='text-[#5B6B79] text-[12px] font-inter '>{label.label}</p>
-                            <p>{label.name}</p>
+                            <p className="text-[#1D2630] dark:text-white" >{label.name}</p>
                           </StepLabel>
                           :
-                          <StepLabel className='text-[#1D2630] text-[14px] font-medium font-inter' icon={getStepIcon(index)}>
+                          <StepLabel className='text-[#1D2630] dark:text-white text-[14px] font-medium font-inter' icon={getStepIcon(index)}>
                           </StepLabel>
                       }
 

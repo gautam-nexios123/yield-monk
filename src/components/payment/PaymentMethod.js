@@ -12,7 +12,7 @@ const PaymentMethod = ({ handlePrev, handleNextTaxForm }) => {
   };
   return (
     <div className='p-5 w-full'>
-      <p className='font-inter font-medium text-[20px] text-[#1D2630]'>Payment Methods</p>
+      <p className='font-inter font-medium text-[20px] text-[#1D2630] dark:text-white'>Payment Methods</p>
       <div className='flex flex-col md:flex-row w-full justify-center gap-3 mt-6'>
         <FormControl sx={{ width: '100%', }} variant="outlined">
           <label className='font-inter font-normal text-[14px] mb-2 text-[#6F747F]'><span className='text-[#DC2626]'>*</span> Payment Method</label>
@@ -25,6 +25,7 @@ const PaymentMethod = ({ handlePrev, handleNextTaxForm }) => {
             label="Payment Method"
             input={<OutlinedInput />}
             IconComponent={KeyboardArrowDownIcon} 
+            className='text-[#1D2630] dark:text-white'
             sx={{ borderRadius: "8px !important" }}
           >
             <MenuItem value={'method1'} selected >Method 1</MenuItem>
@@ -43,6 +44,7 @@ const PaymentMethod = ({ handlePrev, handleNextTaxForm }) => {
             }}
             sx={{ borderRadius: "8px !important" }}
             placeholder='State'
+            className='text-[#1D2630] dark:text-white'
           />
         </FormControl>
       </div>
@@ -57,6 +59,7 @@ const PaymentMethod = ({ handlePrev, handleNextTaxForm }) => {
             }}
             sx={{ borderRadius: "8px !important" }}
             placeholder='Country'
+            className='text-[#1D2630] dark:text-white'
           />
         </FormControl>
         <FormControl sx={{ width: '100%', }} variant="outlined">
@@ -69,6 +72,8 @@ const PaymentMethod = ({ handlePrev, handleNextTaxForm }) => {
             }}
             sx={{ borderRadius: "8px !important" }}
             placeholder='State'
+            className='text-[#1D2630] dark:text-white'
+
           />
         </FormControl>
       </div>
@@ -83,6 +88,8 @@ const PaymentMethod = ({ handlePrev, handleNextTaxForm }) => {
             }}
             sx={{ borderRadius: "8px !important" }}
             placeholder='Country'
+            className='text-[#1D2630] dark:text-white'
+
           />
         </FormControl>
         <FormControl sx={{ width: '100%', }} variant="outlined">
@@ -95,6 +102,8 @@ const PaymentMethod = ({ handlePrev, handleNextTaxForm }) => {
             }}
             sx={{ borderRadius: "8px !important" }}
             placeholder='State'
+            className='text-[#1D2630] dark:text-white'
+
           />
         </FormControl>
       </div>
@@ -109,6 +118,8 @@ const PaymentMethod = ({ handlePrev, handleNextTaxForm }) => {
             }}
             sx={{ borderRadius: "8px !important" }}
             placeholder='Country'
+            className='text-[#1D2630] dark:text-white'
+
           />
         </FormControl>
         <FormControl sx={{ width: '100%', }} variant="outlined">
@@ -121,6 +132,8 @@ const PaymentMethod = ({ handlePrev, handleNextTaxForm }) => {
             }}
             sx={{ borderRadius: "8px !important" }}
             placeholder='State'
+            className='text-[#1D2630] dark:text-white'
+
           />
         </FormControl>
       </div>
@@ -135,6 +148,8 @@ const PaymentMethod = ({ handlePrev, handleNextTaxForm }) => {
             }}
             sx={{ borderRadius: "8px !important" }}
             placeholder='Country'
+            className='text-[#1D2630] dark:text-white'
+
           />
         </FormControl>
         <FormControl sx={{ width: '100%', }} variant="outlined">
@@ -147,6 +162,8 @@ const PaymentMethod = ({ handlePrev, handleNextTaxForm }) => {
             }}
             sx={{ borderRadius: "8px !important" }}
             placeholder='State'
+            className='text-[#1D2630] dark:text-white'
+
           />
         </FormControl>
       </div>
@@ -161,6 +178,8 @@ const PaymentMethod = ({ handlePrev, handleNextTaxForm }) => {
             }}
             sx={{ borderRadius: "8px !important" }}
             placeholder='Country'
+            className='text-[#1D2630] dark:text-white'
+
           />
         </FormControl>
         <FormControl sx={{ width: '100%', }} variant="outlined">
@@ -173,12 +192,14 @@ const PaymentMethod = ({ handlePrev, handleNextTaxForm }) => {
             }}
             sx={{ borderRadius: "8px !important" }}
             placeholder='State'
+            className='text-[#1D2630] dark:text-white'
+
           />
         </FormControl>
       </div>
       <div className='flex flex-col md:flex-row justify-end gap-3 mt-6'>
         <FormControl variant="outlined">
-          <Button variant="outlined" className='text-[#1D2630] font-inter font-medium rounded-lg py-2 text-[14px] border-[#D9D9D9] capitalize' startIcon={<WestIcon />} onClick={handlePrev}>Back</Button>
+          <Button variant="outlined" className='text-[#1D2630] dark:text-white font-inter font-medium rounded-lg py-2 text-[14px] border-[#D9D9D9] capitalize' startIcon={<WestIcon />} onClick={handlePrev}>Back</Button>
 
         </FormControl>
         <FormControl>

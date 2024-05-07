@@ -62,15 +62,15 @@ const AdsTxtManagement = () => {
 
     return (
         <div className='w-full px-[10px] sm:px-[35px] py-[10px] sm:py-[26px]'>
-            <p className='text-[16px] text-[#000000] font-medium font-inter'>Ads.txt Authenticator</p>
+            <p className='text-[16px] text-[#000000] dark:text-white font-medium font-inter'>Ads.txt Authenticator</p>
             {
                 entriesFlag ?
                     <div >
-                        <div className='relative bg-white my-[31px]  px-[20px] xl:px-[272px] py-[30px]'>
+                        <div className='relative bg-white dark:bg-[#1E1E1E] my-[31px]  px-[20px] xl:px-[272px] py-[30px]'>
                             <div className='w-full border  border-[#EFEFEF] p-[20px] rounded-lg'>
 
                                 <div className='lg:px-[40px] px-[10px] pt-[60px]'>
-                                    <p className='text-[#1D2630] font-inter text-[20px] font-medium mt-1'>Ads.txt Entries</p>
+                                    <p className='text-[#1D2630] dark:text-white font-inter text-[20px] font-medium mt-1'>Ads.txt Entries</p>
                                     <p className='font-inter text-[14px] font-normal text-[#5B6B79] mt-1'>{"Ads.txt is mandatory. It needs to be updated incase you already have one. Else please follow the instructions provided here :https://support.google.com/admanager/answer/7441288?hl=en . Yield Monk’s ads.txt should be appended alongside your existing partners."}</p>
 
                                     <div className='flex mt-8 flex-col md:flex-row'>
@@ -111,7 +111,7 @@ const AdsTxtManagement = () => {
                                     </div>
 
                                     <Button variant='outlined' className='w-[107px] h-[40px] px-[16px] py-[9x] rounded-full capitalize mt-5' onClick={handleCopyCodeVerify2}>Copy Code</Button>
-                                    <p className='text-[#1D2630] mt-8 font-inter text-[20px] font-medium'>Missing Entries</p>
+                                    <p className='text-[#1D2630] dark:text-white mt-8 font-inter text-[20px] font-medium'>Missing Entries</p>
                                     <p className='font-inter text-[14px] font-normal text-[#5B6B79] mt-1'>{"The following entries are missing. To avoid loss in revenue, please append the following entries in your ads.txt file."}</p>
 
                                     <div className='flex mt-8 flex-col md:flex-row'>
@@ -135,7 +135,7 @@ const AdsTxtManagement = () => {
                                     <Button variant='outlined' className='w-[107px] h-[40px] px-[16px] py-[9x] rounded-full capitalize mt-5' onClick={handleCopyCodeVerify3}>Copy Code</Button>
                                     <div className='flex flex-col md:flex-row justify-end gap-3 mt-6'>
                                         <FormControl variant="outlined">
-                                            <Button variant="outlined" className='text-[#1D2630] font-inter font-medium rounded-lg py-2 text-[14px] border-[#D9D9D9] capitalize' startIcon={<WestIcon />} onClick={() => {
+                                            <Button variant="outlined" className='text-[#1D2630] dark:text-white font-inter font-medium rounded-lg py-2 text-[14px] border-[#D9D9D9] capitalize' startIcon={<WestIcon />} onClick={() => {
                                                 setEntriesFlag(false)
                                             }} >Back</Button>
 

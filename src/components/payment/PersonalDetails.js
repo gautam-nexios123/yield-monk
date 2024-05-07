@@ -5,7 +5,7 @@ import React from 'react'
 const PersonalDetails = ({handleNextPaymentMethod,handlePrevPersonalDetails}) => {
     return (
         <div className='p-5 w-full'>
-            <p className='font-inter font-medium text-[20px] text-[#1D2630]'>Personal Detail</p>
+            <p className='font-inter font-medium text-[20px] text-[#1D2630] dark:text-white'>Personal Detail</p>
             <p className='text-[#5B6B79] text-[12px] font-normal font-inter mt-3' >To ensure that you receive your payments on time, please enter your details as you shared them with your bank. P.O. Box not allowed.</p>
             <div className='flex flex-col w-full justify-start gap-3 mt-6'>
                 <label className='font-inter font-normal text-[14px] mb-1 text-[#6F747F]'>Type</label>
@@ -17,7 +17,7 @@ const PersonalDetails = ({handleNextPaymentMethod,handlePrevPersonalDetails}) =>
                         inputProps={{
                             'aria-label': 'organisation name',
                         }}
-                        className='w-[100%] lg:w-[60%]'
+                        className='w-[100%] lg:w-[60%] text-[#1D2630] dark:text-white'
                         sx={{ borderRadius: "8px !important" }}
                         placeholder='Please enter the type'
                     />
@@ -36,7 +36,7 @@ const PersonalDetails = ({handleNextPaymentMethod,handlePrevPersonalDetails}) =>
                         }}
                         sx={{ borderRadius: "8px !important" }}
                         placeholder='Please enter your full name'
-                        className='w-[100%] lg:w-[60%]'
+                        className='w-[100%] lg:w-[60%] text-[#1D2630] dark:text-white'
                     />
                 </FormControl>
 
@@ -53,7 +53,7 @@ const PersonalDetails = ({handleNextPaymentMethod,handlePrevPersonalDetails}) =>
                         }}
                         sx={{ borderRadius: "8px !important"}}
                         placeholder='Please enter your contact'
-                        className='w-[100%] lg:w-[60%]'
+                        className='w-[100%] lg:w-[60%] text-[#1D2630] dark:text-white'
                     />
                 </FormControl>
 
@@ -70,7 +70,7 @@ const PersonalDetails = ({handleNextPaymentMethod,handlePrevPersonalDetails}) =>
                         }}
                         sx={{ borderRadius: "8px !important"}}
                         placeholder='Please enter your email'
-                        className='w-[100%] lg:w-[60%]'
+                        className='w-[100%] lg:w-[60%] text-[#1D2630] dark:text-white'
                     />
                 </FormControl>
 
@@ -85,7 +85,7 @@ const PersonalDetails = ({handleNextPaymentMethod,handlePrevPersonalDetails}) =>
                         inputProps={{
                             'aria-label': 'organisation name',
                         }}
-                        className='w-[100%] lg:w-[60%]'
+                        className='w-[100%] lg:w-[60%] text-[#1D2630] dark:text-white'
                         sx={{ borderRadius: "8px !important" }}
                         placeholder='Please enter your address'
                     />
@@ -102,7 +102,7 @@ const PersonalDetails = ({handleNextPaymentMethod,handlePrevPersonalDetails}) =>
                         inputProps={{
                             'aria-label': 'organisation name',
                         }}
-                        className='w-[100%] lg:w-[60%]'
+                        className='w-[100%] lg:w-[60%] text-[#1D2630] dark:text-white'
                         sx={{ borderRadius: "8px !important"}}
                         placeholder='Please enter your postcode'
                     />

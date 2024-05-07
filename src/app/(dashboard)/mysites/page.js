@@ -17,6 +17,7 @@ import Image from 'next/image';
 import AddSiteName from '@/components/mysites/AddSiteName';
 import YeildMockCode from '@/components/mysites/YeildMockCode';
 import Verify from '@/components/mysites/Verify';
+import { useTheme } from 'next-themes';
 
 
 const tableData = [
@@ -162,7 +163,7 @@ const MySites = () => {
   # Last updated:10/02/2024
   # Yield Monk Ads.txt`);
   const [scriptValueSetting, setScriptValueSetting] = useState(`<script data-cfasync="false" type="text/javascript">(function(w, d) { var s = d.createElement('script'); s.src = '//cdn.adpushup.com/46125/adpushup.js'; s.crossOrigin='anonymous'; s.type = 'text/javascript'; s.async = true; (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(s); w.adpushup = w.adpushup || {que:[]}; })(window, document);<\/script>`);
-
+  const {theme} = useTheme();
 
 
   const handleChange = (event, newValue) => {
@@ -253,34 +254,34 @@ const MySites = () => {
     <div className='w-full'>
       {addFlag ?
         <div className='p-6 w-full'>
-          <div className='card bg-[#FAFAFA] h-auto rounded-lg p-6'>
+          <div className='bg-[#FAFAFA] dark:bg-transparent da h-auto rounded-lg p-6'>
             <div className='flex'>
               <IconButton aria-label="back" onClick={() => setAddFlag(false)}>
-                <WestIcon />
-              </IconButton> <p className='text-[#1D2630] font-inter text-[20px] font-semibold mt-1'>Add New Site</p>
+                <WestIcon  style={{ color: theme === 'dark' ? '#fff' : '#333' }}/>
+              </IconButton> <p className='text-[#1D2630] dark:text-white font-inter text-[20px] font-semibold mt-1'>Add New Site</p>
             </div>
-            <div className='w-full  relative bg-white px-[0px] my-[31px]'>
+            <div className='w-full  relative bg-white dark:bg-transparent px-[0px] my-[31px]'>
               <div className='w-full border  border-[#EFEFEF] p-[16px] rounded-lg'>
-                <div className='w-full flex-col bg-[#FAFAFA] md:flex-row flex gap-5 border border-[#EFEFEF] p-[16px] rounded-lg'>
-                  <div className={`border ${num1Comp ? "bg-white" : "bg-white"}  border-[#EFEFEF] gap-3 flex flex-col md:flex-row items-center p-[8px] md:p-[20px] rounded-lg  md:w-[35%] w-full `}>
+                <div className='w-full flex-col bg-[#FAFAFA] dark:bg-transparent  md:flex-row flex gap-5 border border-[#EFEFEF] p-[16px] rounded-lg'>
+                  <div className={`border ${num1Comp ? "bg-white dark:bg-transparent" : "bg-white dark:bg-transparent"}  border-[#EFEFEF] gap-3 flex flex-col md:flex-row items-center p-[8px] md:p-[20px] rounded-lg  md:w-[35%] w-full `}>
                     <Image src={num1Comp ? Num1Com : Number1} alt='number1' />
                     <div>
                       <p className={`text-[12px] font-normal ${num1Comp ? "text-[#5B6B79]" : "text-[#4680FF]"} font-inter`}>Step 1/3</p>
-                      <p className={`font-inter font-medium text-[14px]  ${num1Comp ? "text-[#2CA87F]" : "text-[#1D2630]"} `}>Add Site Name</p>
+                      <p className={`font-inter font-medium text-[14px]  ${num1Comp ? "text-[#2CA87F]" : "text-[#1D2630] dark:text-white"} `}>Add Site Name</p>
                     </div>
                   </div>
-                  <div className={`border ${num1Comp ? "bg-white" : "bg-[#FAFAFA]"}  border-[#EFEFEF] gap-3 flex flex-col md:flex-row  items-center p-[8px] md:p-[20px] rounded-lg md:w-[35%] w-full `}>
+                  <div className={`border ${num1Comp ? "bg-white dark:bg-transparent" : "bg-[#FAFAFA] dark:bg-transparent"}  border-[#EFEFEF] gap-3 flex flex-col md:flex-row  items-center p-[8px] md:p-[20px] rounded-lg md:w-[35%] w-full `}>
                     <Image src={num1Comp ? num2Comp ? Num1Com : Num2Sele : Number2} alt='number2' />
                     <div>
                       <p className={`text-[12px] font-normal ${num1Comp ? num2Comp ? "text-[#5B6B79]" : "text-[#4680FF]" : "text-[#5B6B79]"} font-inter`}>Step 2/3</p>
-                      <p className={`font-inter font-medium text-[14px] ${num2Comp ? "text-[#2CA87F]" : "text-[#1D2630]"}`}>Install Yield Monk Code</p>
+                      <p className={`font-inter font-medium text-[14px] ${num2Comp ? "text-[#2CA87F]" : "text-[#1D2630]  dark:text-white"}`}>Install Yield Monk Code</p>
                     </div>
                   </div>
-                  <div className={`border ${num2Comp ? "bg-white" : "bg-[#FAFAFA]"}  border-[#EFEFEF] gap-3 flex flex-col md:flex-row  items-center p-[8px] md:p-[20px] rounded-lg md:w-[35%] w-full `}>
+                  <div className={`border ${num2Comp ? "bg-white dark:bg-transparent" : "bg-[#FAFAFA] dark:bg-transparent"}  border-[#EFEFEF] gap-3 flex flex-col md:flex-row  items-center p-[8px] md:p-[20px] rounded-lg md:w-[35%] w-full `}>
                     <Image src={num2Comp ? num3Comp ? Num1Com : Num3Sel : Number3} alt='number3' />
                     <div>
                       <p className={`text-[12px] font-normal ${num2Comp ? num3Comp ? "text-[#5B6B79]" : "text-[#4680FF]" : "text-[#5B6B79]"}  font-inter`}>Step 3/3</p>
-                      <p className={`font-inter font-medium text-[14px] ${num3Comp ? "text-[#2CA87F]" : "text-[#1D2630]"} `}>Verify Ads.txt</p>
+                      <p className={`font-inter font-medium text-[14px] ${num3Comp ? "text-[#2CA87F]" : "text-[#1D2630]  dark:text-white"} `}>Verify Ads.txt</p>
                     </div>
                   </div>
                 </div>
@@ -325,8 +326,8 @@ const MySites = () => {
                 indicatorColor="primary"
                 aria-label="secondary tabs example"
               >
-                <Tab value="Manage Apps" label="Manage Apps" className='font-inter font-medium text-[14px] capitalize' />
-                <Tab value="Site Setting" label="Site Setting" className='font-inter font-medium text-[14px] capitalize' />
+                <Tab value="Manage Apps" label="Manage Apps" className='font-inter font-medium text-[14px] text-[#1D2630] dark:text-white capitalize' />
+                <Tab value="Site Setting" label="Site Setting" className='font-inter font-medium text-[14px] text-[#1D2630] dark:text-white capitalize' />
               </Tabs>
               {/* {value === "Transactions" && <Button variant="outlined" className='text-[#262626] font-sans font-normal text-[14px] border-[#D9D9D9] capitalize'>Export</Button>} */}
 

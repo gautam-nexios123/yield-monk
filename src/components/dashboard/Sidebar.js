@@ -86,11 +86,11 @@ const Sidebar = () => {
 
     return (
         <>
-            <PerMentDrawer variant='permanent' open={isOpen} className='hidden lg:block'>
+            <PerMentDrawer variant='permanent' open={isOpen} className='hidden lg:block '>
                 <MenuList isOpen={isOpen} />
             </PerMentDrawer>
             {
-                getWindowWidth() < 1024 && <Drawer open={isOpen} onClose={() => dispatch(openClodeDrawerAction(!isOpen))} className='block lg:hidden'>
+                getWindowWidth() < 1024 && <Drawer  open={isOpen} onClose={() => dispatch(openClodeDrawerAction(!isOpen))} className='block lg:hidden'>
                     <MenuList isOpen={isOpen} />
                 </Drawer>
             }

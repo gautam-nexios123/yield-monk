@@ -8,9 +8,9 @@ import Logout from "../../assets/others/logout.svg";
 import Unlock from "../../assets/others/unlock.svg";
 
 
-const ProfileMenu = ({profileRef}) => {
+const ProfileMenu = () => {
     return (
-        <div ref={profileRef} className='card bg-white absolute z-10 right-2 w-[352px] top-20 h-auto rounded-xl p-5 shadow-lg' >
+        <div className='card bg-white absolute z-10 right-0 sm:right-2 w-[320px] sm:w-[352px] top-[56px] sm:top-[54px] h-auto rounded-xl p-5 shadow-lg select-none' >
             <p className='text-[20px] font-inter font-semibold text-[#1D2630] flex justify-center'>Profile</p>
             <div className='flex gap-3 mt-2'>
                 <div className='w-[40px] h-[40px] bg-yellow-400 rounded-full'></div>

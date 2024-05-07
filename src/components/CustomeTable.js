@@ -1,11 +1,13 @@
 "use client"
-import { OutlinedInput, Pagination, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, tableCellClasses } from '@mui/material'
-import React, { useState } from 'react'
+import { OutlinedInput, Pagination, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, ThemeProvider, tableCellClasses } from '@mui/material'
+import React, { useEffect, useState } from 'react'
 import { styled } from '@mui/styles';
 import Sort from "../assets/payment/sort.svg";
 import Invocie from "../assets/payment/invoice.svg";
 import Image from 'next/image';
 import CustomSelect from '@/common/CustomSelect';
+import { useTheme } from 'next-themes';
+import { darkThemePagination, lightThemePagination } from '@/utils';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
@@ -29,12 +31,15 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
     border: "none"
 }));
 
-const CustomeTable = ({ tableData, serchFilterKey, totalRowShow, pagginationShow,invoiceShow ,totalRowShowReport}) => {
+const CustomeTable = ({ tableData, serchFilterKey, totalRowShow, pagginationShow, invoiceShow, totalRowShowReport }) => {
     const [currentPage, setCurrentPage] = useState(1);
     const [rowsPerPage, setRowsPerPage] = useState(5);
     const [filterValue, setFilterValue] = useState("");
     const [sortOrder, setSortOrder] = useState('desc');
     const [sortByColumn, setSortByColumn] = useState('');
+    const [showTablePagination, setShowTablePagination] = useState(false);
+
+    const { theme } = useTheme();
 
     const filteredRows = tableData?.filter(row =>
         row[serchFilterKey]?.toLowerCase().includes(filterValue?.toLowerCase())
@@ -79,6 +84,10 @@ const CustomeTable = ({ tableData, serchFilterKey, totalRowShow, pagginationShow
         }
     };
 
+    useEffect(() => {
+        setShowTablePagination(true)
+    }, [])
+
     return (
         <div>
             <div className='flex justify-between flex-col sm:flex-row'>
@@ -95,6 +104,7 @@ const CustomeTable = ({ tableData, serchFilterKey, totalRowShow, pagginationShow
                         inputProps={{
                             'aria-label': 'organisation name',
                         }}
+                        className='text-[#353535] dark:text-white'
                         sx={{ borderRadius: "8px !important", height: "34px", padding: "8px 12px" }}
                         placeholder='Search'
                         value={filterValue}
@@ -150,35 +160,35 @@ const CustomeTable = ({ tableData, serchFilterKey, totalRowShow, pagginationShow
                             <StyledTableCell align="start">
 
                             </StyledTableCell>
-                            <StyledTableCell align="start"colSpan={10} >
+                            <StyledTableCell align="start" colSpan={10} >
                                 5258522
                             </StyledTableCell>
                         </StyledTableRow>}
                         {
                             totalRowShowReport &&
                             <StyledTableRow >
-                            <StyledTableCell align="start" colSpan={1}>
-                                Total
-                            </StyledTableCell>
-                            <StyledTableCell align="start">
+                                <StyledTableCell align="start" colSpan={1}>
+                                    Total
+                                </StyledTableCell>
+                                <StyledTableCell align="start">
 
-                            </StyledTableCell>
-                            <StyledTableCell align="start"colSpan={1} sx={{borderRight:2,borderColor:"#FAFAFA"}} >
-                                5258522
-                            </StyledTableCell>
-                            <StyledTableCell align="start"colSpan={1} >
-                                52
-                            </StyledTableCell>
-                            <StyledTableCell align="start"colSpan={1} >
-                                85932
-                            </StyledTableCell>
-                            <StyledTableCell align="start"colSpan={1} >
-                                9622
-                            </StyledTableCell>
-                            <StyledTableCell align="start"colSpan={1} >
-                                96322
-                            </StyledTableCell>
-                        </StyledTableRow>
+                                </StyledTableCell>
+                                <StyledTableCell align="start" colSpan={1} sx={{ borderRight: 2, borderColor: "#FAFAFA" }} >
+                                    5258522
+                                </StyledTableCell>
+                                <StyledTableCell align="start" colSpan={1} >
+                                    52
+                                </StyledTableCell>
+                                <StyledTableCell align="start" colSpan={1} >
+                                    85932
+                                </StyledTableCell>
+                                <StyledTableCell align="start" colSpan={1} >
+                                    9622
+                                </StyledTableCell>
+                                <StyledTableCell align="start" colSpan={1} >
+                                    96322
+                                </StyledTableCell>
+                            </StyledTableRow>
                         }
                     </TableBody>
                 </Table>
@@ -187,16 +197,21 @@ const CustomeTable = ({ tableData, serchFilterKey, totalRowShow, pagginationShow
             </TableContainer>
             {pagginationShow && <div className='flex justify-between mt-3 p-5 flex-col sm:flex-row'>
                 <p className='mb-5 sm:mb-0'>Showing {filteredRows.length > 0 ? ((currentPage - 1) * rowsPerPage + 1) : 0} to {(currentPage * rowsPerPage) > filteredRows.length ? filteredRows.length : (currentPage * rowsPerPage)} of {filteredRows.length} entries</p>
-                <Pagination 
-                    onChange={(e, currentPage) => handlePageChange(e, currentPage)}
-                    page={currentPage}
-                    siblingCount={0}
-                    boundaryCount={1}
-                    variant="outlined"
-                    shape="rounded"
-                    onNextClick={() => handleNextPage()}
-                    onPrevClick={() => handlePrevPage()}
-                    count={totalPages} />
+                {
+                    showTablePagination && <ThemeProvider theme={theme === "light" ? lightThemePagination : darkThemePagination}>
+                        <Pagination
+                            onChange={(e, currentPage) => handlePageChange(e, currentPage)}
+                            page={currentPage}
+                            siblingCount={0}
+                            boundaryCount={1}
+                            variant="outlined"
+                            shape="rounded"
+                            onNextClick={() => handleNextPage()}
+                            onPrevClick={() => handlePrevPage()}
+                            count={totalPages}
+                        />
+                    </ThemeProvider>
+                }
             </div>}
         </div>
     )
