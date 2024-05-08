@@ -3,7 +3,6 @@ import { Button, Dialog, DialogActions, DialogContent, DialogTitle, FormControl,
 import React, { useEffect, useState } from 'react'
 import CloseIcon from '@mui/icons-material/Close';
 import CustomSelect from '@/common/CustomSelect';
-import { styled } from '@mui/styles';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import { useTheme } from 'next-themes';
 
@@ -14,7 +13,7 @@ const ScheduleDialog = ({ handleCloseSchedule, openSchedule }) => {
     const [weekValue, setWeekValue] = useState("Monday");
     const [monthValueDate, setMonthValueDate] = useState("1");
     const [scheduleFlag, setScheduleFlag] = useState(false)
-    const {theme} = useTheme();
+    const { theme } = useTheme();
 
     const handleFrequencyChange = (event) => {
         setFrequencyValue(event.target.value);
@@ -34,9 +33,9 @@ const ScheduleDialog = ({ handleCloseSchedule, openSchedule }) => {
     }
 
     useEffect(() => {
-      setScheduleFlag(true);
+        setScheduleFlag(true);
     }, [])
-    
+
 
     return (
         <Dialog
@@ -48,11 +47,11 @@ const ScheduleDialog = ({ handleCloseSchedule, openSchedule }) => {
                 '& .MuiDialogContent-root': {
                     padding: "16px",
                     backgroundColor: scheduleFlag && theme === "light" ? "white" : "#1E1E1E"
-                }, 
+                },
             }}
-          
+
         >
-            <DialogTitle className='font-inter font-semibold text-[16px] text-[#1E1E1E] dark:text-white' sx={{ m: 0, p: 2,backgroundColor: scheduleFlag && theme === "light" ? "white" : "#1E1E1E" }} id="customized-dialog-title">
+            <DialogTitle className='font-inter font-semibold text-[16px] text-[#1E1E1E] dark:text-white' sx={{ m: 0, p: 2, backgroundColor: scheduleFlag && theme === "light" ? "white" : "#1E1E1E" }} id="customized-dialog-title">
                 Schedule Report
             </DialogTitle>
             <IconButton
@@ -128,7 +127,7 @@ const ScheduleDialog = ({ handleCloseSchedule, openSchedule }) => {
                     </div>
                 </div>
             </DialogContent>
-            <DialogActions className='border-t-[1px] border-[#F0F0F0] flex justify-between px-[16px] py-[10x]'   sx={{  backgroundColor: scheduleFlag && theme === "light" ? "white" : "#1E1E1E" }} >
+            <DialogActions className='border-t-[1px] border-[#F0F0F0] flex justify-between px-[16px] py-[10x]' sx={{ backgroundColor: scheduleFlag && theme === "light" ? "white" : "#1E1E1E" }} >
                 <Button variant="outlined" className='text-[#1D2630] dark:text-white font-inter font-medium rounded-full py-2 text-[14px] border-[#D9D9D9] capitalize' onClick={handleCloseSchedule} >Back</Button>
                 <Button variant='contained' className=' w-[70px] h-[40px]  bg-[#4680FF] rounded-full capitalize' onClick={handleCloseSchedule}>Save</Button>
 

@@ -12,7 +12,7 @@ import CustomSelect from '@/common/CustomSelect';
 import { useTheme } from 'next-themes';
 
 
-const StyledTableCell = styled(TableCell)(({ theme }) => ({
+const StyledTableCell = styled(TableCell)(() => ({
     [`&.${tableCellClasses.head}`]: {
         backgroundColor: "#FAFAFA",
         color: "black",
@@ -23,9 +23,9 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
     border: "none",
 }));
 
-const StyledTableRow = styled(TableRow)(({ theme }) => ({
+const StyledTableRow = styled(TableRow)(() => ({
     '&:nth-of-type(even)': {
-        backgroundColor:  "#FAFAFA",
+        backgroundColor: "#FAFAFA",
     },
     // hide last border
     '&:last-child td, &:last-child th': {
@@ -35,18 +35,18 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 }));
 
 
-const SavedReport = ({handleCloseReport,sitetableData,openReport}) => {
+const SavedReport = ({ handleCloseReport, sitetableData, openReport }) => {
     const [searchValue, setSearchValue] = useState("");
     const [sortValue, setSortValue] = useState("Sort By");
     const [savedDialogFlag, setSavedDialogFlag] = useState(false);
-    const {theme} = useTheme();
+    const { theme } = useTheme();
 
     const handleSortChange = (event) => {
         setSortValue(event.target.value);
     }
     useEffect(() => {
         setSavedDialogFlag(true);
-      }, [])
+    }, [])
 
     return (
         <Dialog
@@ -58,11 +58,11 @@ const SavedReport = ({handleCloseReport,sitetableData,openReport}) => {
                 '& .MuiDialogContent-root': {
                     padding: "16px",
                     backgroundColor: savedDialogFlag && theme === "light" ? "white" : "#1E1E1E"
-                }, 
+                },
             }}
 
         >
-            <DialogTitle className='font-inter font-semibold text-[16px] text-[#1E1E1E] dark:text-white' sx={{ m: 0, p: 2 ,backgroundColor: savedDialogFlag && theme === "light" ? "white" : "#1E1E1E"}} id="customized-dialog-title">
+            <DialogTitle className='font-inter font-semibold text-[16px] text-[#1E1E1E] dark:text-white' sx={{ m: 0, p: 2, backgroundColor: savedDialogFlag && theme === "light" ? "white" : "#1E1E1E" }} id="customized-dialog-title">
                 Saved Reports
             </DialogTitle>
             <IconButton
@@ -96,8 +96,8 @@ const SavedReport = ({handleCloseReport,sitetableData,openReport}) => {
                                         </InputAdornment>
                                     ),
                                     style: {
-                                        backgroundColor: savedDialogFlag && theme === 'dark' ? '#1E1E1E': '#F8F9FA' ,
-                                        color : savedDialogFlag && theme === "dark" ? "white" : "black"
+                                        backgroundColor: savedDialogFlag && theme === 'dark' ? '#1E1E1E' : '#F8F9FA',
+                                        color: savedDialogFlag && theme === "dark" ? "white" : "black"
                                     }
 
                                 }}
@@ -177,7 +177,7 @@ const SavedReport = ({handleCloseReport,sitetableData,openReport}) => {
                     </TableContainer>
                 </div>
             </DialogContent>
-            <DialogActions className='border-t-[1px] border-[#F0F0F0] flex justify-between px-[16px] py-[10x]'  sx={{  backgroundColor: savedDialogFlag && theme === "light" ? "white" : "#1E1E1E" }} >
+            <DialogActions className='border-t-[1px] border-[#F0F0F0] flex justify-between px-[16px] py-[10x]' sx={{ backgroundColor: savedDialogFlag && theme === "light" ? "white" : "#1E1E1E" }} >
                 <Button variant="outlined" className='text-[#1D2630] dark:text-white font-inter font-medium rounded-full py-2 text-[14px] border-[#D9D9D9] capitalize' onClick={handleCloseReport} >Back</Button>
                 <Button variant='contained' className=' w-[70px] h-[40px]  bg-[#4680FF] rounded-full capitalize' onClick={handleCloseReport}>Done</Button>
 

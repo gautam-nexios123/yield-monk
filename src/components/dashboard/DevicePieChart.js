@@ -35,7 +35,7 @@ const DevicePieChart = ({ series, labels, colors }) => {
                     },
                 }
             },
-            
+
         },
     };
 

@@ -15,7 +15,7 @@ const YeildMockCode = ({ setScriptValue, scriptValue, handleCopyCode, setNump2Co
                         id="org-name"
                         aria-describedby="org-name-helper"
                         inputProps={{
-                           
+
                             'aria-label': 'organisation name',
                         }}
                         className='bg-white dark:bg-[#1E1E1E] text-[#1D2630] dark:text-white'

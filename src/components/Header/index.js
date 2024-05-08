@@ -25,7 +25,7 @@ const Header = () => {
   const [themeFlag, setThemeFlag] = useState(false);
   const profileRef = useRef(null);
   const themRef = useRef(null);
-  const {theme ,setTheme } = useTheme()
+  const { theme, setTheme } = useTheme()
   const [value, setValue] = useState(0);
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -87,14 +87,14 @@ const Header = () => {
   }, [themRef]);
 
   useEffect(() => {
-      if (theme === "light") {
-        setValue(0);
-      }
-      else{
-        setValue(1);
-      }
+    if (theme === "light") {
+      setValue(0);
+    }
+    else {
+      setValue(1);
+    }
   }, [theme])
-  
+
 
   return (
     <div className={`w-full h-[74px] py-5 px-[20px] bg-white dark:bg-[#1E1E1E] ${isSticky ? "sticky top-0  z-[9999] " : ""

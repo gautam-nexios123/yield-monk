@@ -2,7 +2,7 @@
 import dynamic from 'next/dynamic';
 import React from 'react'
 
-const PieChart = ({ series, labels , colors }) => {
+const PieChart = ({ series, labels, colors }) => {
 
     const Chart = dynamic(() => import('react-apexcharts'), {
         ssr: false,

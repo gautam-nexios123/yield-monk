@@ -1,7 +1,7 @@
 "use client"
 import React, { useState } from 'react'
 import WestIcon from '@mui/icons-material/West';
-import { Button, FormControl, InputLabel, MenuItem, OutlinedInput, Select } from '@mui/material';
+import { Button, FormControl, MenuItem, OutlinedInput, Select } from '@mui/material';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 
 const PaymentMethod = ({ handlePrev, handleNextTaxForm }) => {
@@ -24,7 +24,7 @@ const PaymentMethod = ({ handlePrev, handleNextTaxForm }) => {
             onChange={handlePaymentMethodChange}
             label="Payment Method"
             input={<OutlinedInput />}
-            IconComponent={KeyboardArrowDownIcon} 
+            IconComponent={KeyboardArrowDownIcon}
             className='text-[#1D2630] dark:text-white'
             sx={{ borderRadius: "8px !important" }}
           >

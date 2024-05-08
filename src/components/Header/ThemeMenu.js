@@ -7,8 +7,8 @@ import { useTheme } from 'next-themes';
 
 const ThemeMenu = ({ handleChange, value }) => {
 
-    const {theme,setTheme} = useTheme();
-  
+    const { theme, setTheme } = useTheme();
+
 
     return (
         <div className='absolute z-10 right-1 top-14 shadow-lg rounded-xl' >
@@ -23,7 +23,7 @@ const ThemeMenu = ({ handleChange, value }) => {
                         backgroundColor: "#F5F5F5",
                         padding: "0px",
                         '& .MuiTab-root': {
-                            height:"42px",
+                            height: "42px",
                             '&.Mui-selected': {
                                 borderBottom: 'none !important', // Remove bottom border when tab is selected
                             },
@@ -34,7 +34,7 @@ const ThemeMenu = ({ handleChange, value }) => {
 
                     <Tab label="light"
                         // icon={<Image src={sunIcon} width={20} height={20} />}
-                        style={{ display: 'flex', flexDirection: 'row', alignItems: 'center',gap:"8px",textTransform:"capitalize" }}
+                        style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: "8px", textTransform: "capitalize" }}
                         sx={{
                             '&.Mui-selected': {
                                 backgroundColor: 'white',
@@ -46,11 +46,11 @@ const ThemeMenu = ({ handleChange, value }) => {
                             color: "#9FA2AA"
                         }}
                         onClick={() => setTheme('light')}
-                        />
+                    />
                     <Tab
                         label="dark"
                         // icon={<Image src={darkIcon} width={20} height={20} />}
-                        style={{ display: 'flex', flexDirection: 'row', alignItems: 'center',gap:"8px",textTransform:"capitalize" }}
+                        style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: "8px", textTransform: "capitalize" }}
                         sx={{
                             '&.Mui-selected': {
                                 backgroundColor: 'white',
@@ -62,7 +62,7 @@ const ThemeMenu = ({ handleChange, value }) => {
                             color: "#9FA2AA"
                         }}
                         onClick={() => setTheme('dark')}
-                        />
+                    />
                 </Tabs>
             </Box>
         </div>

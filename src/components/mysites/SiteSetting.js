@@ -11,7 +11,7 @@ const SiteSetting = ({ scriptValueSetting, setScriptValueSetting, handleCopyCode
 
     const handleChangeAll = (event) => {
         setStatusSetting(event.target.value);
-      };
+    };
 
     return (
         <div className='w-full  relative bg-white dark:bg-[#1E1E1E] px-[0px] my-[31px]'>
@@ -75,7 +75,7 @@ const SiteSetting = ({ scriptValueSetting, setScriptValueSetting, handleCopyCode
                 <div className='flex flex-col md:flex-row justify-end gap-3 mt-6'>
                     <FormControl variant="outlined">
                         <Button variant="outlined" className='text-[#1D2630] dark:text-white font-inter font-medium rounded-lg py-2 text-[14px] border-[#D9D9D9] capitalize' startIcon={<WestIcon />} onClick={() => {
-                          setManageSiteFlag(false)
+                            setManageSiteFlag(false)
                         }} >Back</Button>
 
                     </FormControl>

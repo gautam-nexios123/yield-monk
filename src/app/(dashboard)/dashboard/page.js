@@ -22,7 +22,7 @@ const seriesData = [{
     data: [40, 50, 55, 59, 49, 80, 70, 85, 110, 95, 60, 75]
 }]
 
-const colors=["#E58A00",'#4680FF']
+const colors = ["#E58A00", '#4680FF']
 const Dashboard = () => {
 
     const [linkAll, setLinkAll] = useState('all');

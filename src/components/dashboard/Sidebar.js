@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import { styled } from '@mui/material/styles';
 import MuiDrawer from '@mui/material/Drawer';
@@ -90,7 +90,7 @@ const Sidebar = () => {
                 <MenuList isOpen={isOpen} />
             </PerMentDrawer>
             {
-                getWindowWidth() < 1024 && <Drawer  open={isOpen} onClose={() => dispatch(openClodeDrawerAction(!isOpen))} className='block lg:hidden'>
+                getWindowWidth() < 1024 && <Drawer open={isOpen} onClose={() => dispatch(openClodeDrawerAction(!isOpen))} className='block lg:hidden'>
                     <MenuList isOpen={isOpen} />
                 </Drawer>
             }

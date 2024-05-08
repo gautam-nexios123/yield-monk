@@ -3,7 +3,7 @@ import React from 'react'
 import WestIcon from '@mui/icons-material/West';
 
 
-const DonePage = ({handlePrev}) => {
+const DonePage = ({ handlePrev }) => {
   return (
     <div className='p-10 w-full'>
       <p className='font-inter font-medium text-[20px] text-[#1D2630] dark:text-white'>Done</p>

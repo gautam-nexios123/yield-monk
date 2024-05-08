@@ -1,8 +1,7 @@
 import { Button, FormControl, OutlinedInput } from '@mui/material'
-import WestIcon from '@mui/icons-material/West';
 import React from 'react'
 
-const PersonalDetails = ({handleNextPaymentMethod,handlePrevPersonalDetails}) => {
+const PersonalDetails = ({ handleNextPaymentMethod }) => {
     return (
         <div className='p-5 w-full'>
             <p className='font-inter font-medium text-[20px] text-[#1D2630] dark:text-white'>Personal Detail</p>
@@ -51,7 +50,7 @@ const PersonalDetails = ({handleNextPaymentMethod,handlePrevPersonalDetails}) =>
                         inputProps={{
                             'aria-label': 'organisation name',
                         }}
-                        sx={{ borderRadius: "8px !important"}}
+                        sx={{ borderRadius: "8px !important" }}
                         placeholder='Please enter your contact'
                         className='w-[100%] lg:w-[60%] text-[#1D2630] dark:text-white'
                     />
@@ -68,7 +67,7 @@ const PersonalDetails = ({handleNextPaymentMethod,handlePrevPersonalDetails}) =>
                         inputProps={{
                             'aria-label': 'organisation name',
                         }}
-                        sx={{ borderRadius: "8px !important"}}
+                        sx={{ borderRadius: "8px !important" }}
                         placeholder='Please enter your email'
                         className='w-[100%] lg:w-[60%] text-[#1D2630] dark:text-white'
                     />
@@ -103,7 +102,7 @@ const PersonalDetails = ({handleNextPaymentMethod,handlePrevPersonalDetails}) =>
                             'aria-label': 'organisation name',
                         }}
                         className='w-[100%] lg:w-[60%] text-[#1D2630] dark:text-white'
-                        sx={{ borderRadius: "8px !important"}}
+                        sx={{ borderRadius: "8px !important" }}
                         placeholder='Please enter your postcode'
                     />
                 </FormControl>

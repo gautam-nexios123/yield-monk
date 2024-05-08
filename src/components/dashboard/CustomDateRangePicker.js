@@ -19,17 +19,17 @@ const style = {
     borderRadius: "8px"
 };
 
-const CustomDateRangePicker = ({dateRange ,setDateRange}) => {
+const CustomDateRangePicker = ({ dateRange, setDateRange }) => {
     const [datePickerModel, setDatePickerModel] = useState(false);
     const [dateFlag, setDateFlag] = useState(false)
-    const {theme} = useTheme();
+    const { theme } = useTheme();
     const handleOpen = () => setDatePickerModel(true);
     const handleClose = () => setDatePickerModel(false);
-    
+
     useEffect(() => {
         setDateFlag(true);
     }, [])
-    
+
 
     return (
         <div>

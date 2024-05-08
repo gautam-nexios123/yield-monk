@@ -13,7 +13,7 @@ const NetworkRevenue = () => {
                 <div className='text-[#4680FF] font-normal font-inter text-sm cursor-pointer'>View Reports</div>
             </div>
             <div className='w-[100%] flex items-center justify-center mt-[41px]'>
-                <PieChart series = {[10, 40 , 20 ,10 , 15 , 5]} labels = {['A', 'B' , "C" , "D" ,"E" , "F"]} colors={['#1D2630', '#4680FF', '#6293FF', '#CFD1D4', '#5B6B79', '#5B6B79']} />
+                <PieChart series={[10, 40, 20, 10, 15, 5]} labels={['A', 'B', "C", "D", "E", "F"]} colors={['#1D2630', '#4680FF', '#6293FF', '#CFD1D4', '#5B6B79', '#5B6B79']} />
             </div>
             <div className='flex flex-col flex-wrap sm:flex-row items-center justify-between gap-[20px] w-full mt-[40px]'>
                 <div className='border border-[#DBE0E5] rounded p-[20px] w-full md:w-[48%] xl:w-[32%]'>

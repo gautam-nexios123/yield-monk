@@ -1,8 +1,7 @@
 "use client"
-import { Box, Button, FormControl, OutlinedInput, Step, StepConnector, StepIcon, StepLabel, Stepper, Tab, Tabs } from '@mui/material';
+import { Box, Button, Step, StepLabel, Stepper, Tab, Tabs } from '@mui/material';
 import Image from 'next/image';
 import React, { useState } from 'react'
-import PersonIcon from '@mui/icons-material/Person';
 import UserIcon from "../../../assets/payment/useIcon.svg";
 import UserSimple from "../../../assets/payment/userSimple.svg";
 import Location from "../../../assets/payment/location.svg";
@@ -11,7 +10,6 @@ import Cart from "../../../assets/payment/cart.svg";
 import CartSimple from "../../../assets/payment/cartSimple.svg";
 import Done from "../../../assets/payment/done.svg";
 import DoneSimple from "../../../assets/payment/doneSimple.svg";
-import { makeStyles, withStyles } from '@mui/styles';
 import PersonalDetails from '@/components/payment/PersonalDetails';
 import PaymentMethod from '@/components/payment/PaymentMethod';
 import TaxForm from '@/components/payment/TaxForm';

@@ -6,8 +6,8 @@ import SiteName from "../../assets/mysites/sitename.svg";
 import Home from "../../assets/mysites/home.svg";
 import { useTheme } from 'next-themes';
 
-const AddSiteName = ({ setNump1Comp ,setAddFlag}) => {
-    const {theme} = useTheme();
+const AddSiteName = ({ setNump1Comp, setAddFlag }) => {
+    const { theme } = useTheme();
     return (
         <div className='px-[20px] py-[40px]'>
             <p className='font-inter font-medium text-[20px] text-[#1D2630] dark:text-white'>Add Website</p>
@@ -38,7 +38,7 @@ const AddSiteName = ({ setNump1Comp ,setAddFlag}) => {
                         inputProps={{
                             'aria-label': 'organisation name',
                         }}
-                        sx={{ borderRadius: "8px !important", padding: "22px 20px", backgroundColor:theme === "light" ? "#FAFAFA": "#1E1E1E", color: "#5B6B79" }}
+                        sx={{ borderRadius: "8px !important", padding: "22px 20px", backgroundColor: theme === "light" ? "#FAFAFA" : "#1E1E1E", color: "#5B6B79" }}
                         placeholder='State'
                         value={"https://www.sitename.com"}
                         startAdornment={ // You can also use endAdornment if you want the icon on the right

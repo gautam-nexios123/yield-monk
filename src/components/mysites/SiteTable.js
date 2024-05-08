@@ -1,6 +1,6 @@
 "use client"
 import CustomSelect from '@/common/CustomSelect'
-import { Button, Chip, FormControl, InputAdornment, MenuItem, Pagination, Paper, Select, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TextField, ThemeProvider, createTheme, tableCellClasses } from '@mui/material'
+import { Button, Chip, FormControl, InputAdornment, MenuItem, Pagination, Paper, Select, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TextField, ThemeProvider, tableCellClasses } from '@mui/material'
 import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
 import EyeIcon from "../../assets/mysites/eye.svg";
@@ -70,19 +70,19 @@ const SiteTable = ({ setAddFlag, currentPage, tableData, rowsPerPagedata, rowsPe
                                 </InputAdornment>
                             ),
                             style: {
-                                backgroundColor: theme === 'dark' ? '#1E1E1E': '#F8F9FA' ,
-                                color : theme === "dark" ? "white" : "black"
+                                backgroundColor: theme === 'dark' ? '#1E1E1E' : '#F8F9FA',
+                                color: theme === "dark" ? "white" : "black"
                             }
 
                         }}
                     />
                 </FormControl>
                 <div className='flex gap-5'>
-                    <div className='mt-1'>
+                    <div className='mt-4 sm:mt-1'>
                         <CustomSelect value={sortValue} handleChange={handleSortChange} menuList={["Sort By", "10", "15", "25"]} width={70} textColor={"black"} borderColor={"#D9D9D9"} />
                     </div>
                     <FormControl >
-                        <Button onClick={() => setAddFlag(true)} variant="contained" className='bg-[#4680FF] rounded-full py-[9px] px-[16px] capitalize' startIcon={<Image src={AddIcon} alt='setting' />} disableRipple={true}>Add New Site</Button>
+                        <Button onClick={() => setAddFlag(true)} variant="contained" className='bg-[#4680FF] rounded-full py-[9px] px-[16px] capitalize mt-4 sm:mt-0' startIcon={<Image src={AddIcon} alt='setting' />} disableRipple={true}>Add New Site</Button>
                     </FormControl>
                 </div>
             </div>

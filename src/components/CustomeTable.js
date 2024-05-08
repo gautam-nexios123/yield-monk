@@ -9,7 +9,7 @@ import CustomSelect from '@/common/CustomSelect';
 import { useTheme } from 'next-themes';
 import { darkThemePagination, lightThemePagination } from '@/utils';
 
-const StyledTableCell = styled(TableCell)(({ theme }) => ({
+const StyledTableCell = styled(TableCell)(() => ({
     [`&.${tableCellClasses.head}`]: {
         backgroundColor: "#FAFAFA",
         color: "black",
@@ -20,7 +20,7 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
     border: "none",
 }));
 
-const StyledTableRow = styled(TableRow)(({ theme }) => ({
+const StyledTableRow = styled(TableRow)(() => ({
     '&:nth-of-type(even)': {
         backgroundColor: "#FAFAFA",
     },

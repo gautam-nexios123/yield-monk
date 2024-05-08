@@ -1,5 +1,5 @@
 "use client"
-import { Box, Button, FormControl, IconButton, InputAdornment, MenuItem, OutlinedInput, Pagination, Paper, Select, Step, StepLabel, Stepper, Tab, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Tabs, TextField, TextareaAutosize, Typography, tableCellClasses } from '@mui/material'
+import { Box, IconButton, Tab, Tabs } from '@mui/material'
 import React, { useState } from 'react'
 import WestIcon from '@mui/icons-material/West';
 import Number1 from "../../../assets/mysites/number1.svg";
@@ -163,7 +163,7 @@ const MySites = () => {
   # Last updated:10/02/2024
   # Yield Monk Ads.txt`);
   const [scriptValueSetting, setScriptValueSetting] = useState(`<script data-cfasync="false" type="text/javascript">(function(w, d) { var s = d.createElement('script'); s.src = '//cdn.adpushup.com/46125/adpushup.js'; s.crossOrigin='anonymous'; s.type = 'text/javascript'; s.async = true; (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(s); w.adpushup = w.adpushup || {que:[]}; })(window, document);<\/script>`);
-  const {theme} = useTheme();
+  const { theme } = useTheme();
 
 
   const handleChange = (event, newValue) => {
@@ -257,7 +257,7 @@ const MySites = () => {
           <div className='bg-[#FAFAFA] dark:bg-transparent da h-auto rounded-lg p-6'>
             <div className='flex'>
               <IconButton aria-label="back" onClick={() => setAddFlag(false)}>
-                <WestIcon  style={{ color: theme === 'dark' ? '#fff' : '#333' }}/>
+                <WestIcon style={{ color: theme === 'dark' ? '#fff' : '#333' }} />
               </IconButton> <p className='text-[#1D2630] dark:text-white font-inter text-[20px] font-semibold mt-1'>Add New Site</p>
             </div>
             <div className='w-full  relative bg-white dark:bg-transparent px-[0px] my-[31px]'>
@@ -329,7 +329,6 @@ const MySites = () => {
                 <Tab value="Manage Apps" label="Manage Apps" className='font-inter font-medium text-[14px] text-[#1D2630] dark:text-white capitalize' />
                 <Tab value="Site Setting" label="Site Setting" className='font-inter font-medium text-[14px] text-[#1D2630] dark:text-white capitalize' />
               </Tabs>
-              {/* {value === "Transactions" && <Button variant="outlined" className='text-[#262626] font-sans font-normal text-[14px] border-[#D9D9D9] capitalize'>Export</Button>} */}
 
             </Box>
             {value === "Manage Apps" &&
