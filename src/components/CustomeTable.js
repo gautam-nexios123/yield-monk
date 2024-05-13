@@ -153,7 +153,7 @@ const CustomeTable = ({ tableData, serchFilterKey, totalRowShow, pagginationShow
                                 </StyledTableCell>
                             </StyledTableRow>
                         }
-                        {totalRowShow && <StyledTableRow >
+                        {totalRowShow && paginatedRows.length > 0 && <StyledTableRow >
                             <StyledTableCell align="start" colSpan={1}>
                                 Total
                             </StyledTableCell>
