@@ -162,7 +162,7 @@ const SavedReport = ({ handleCloseReport, sitetableData, openReport }) => {
 
                                                 <Image className='cursor-pointer' src={EyeIcon} alt='EyeIcon' />
                                                 <Image className='cursor-pointer' src={EditIcon} alt='EditIcon' />
-                                                <Image className='cursor-pointer' src={DeleteIcon} alt='SettingIcon' onClick={() => setManageSiteFlag(true)} />
+                                                <Image className='cursor-pointer' src={DeleteIcon} alt='DeleteIcon' />
 
                                             </div>
 

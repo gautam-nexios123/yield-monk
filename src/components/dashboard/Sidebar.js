@@ -107,11 +107,11 @@ const MenuList = ({ isOpen }) => {
     return (
         <div className={`px-[20px] py-[20px] flex flex-col ${!isOpen && "items-center"}`}>
 
-            {isOpen ? pathName === "/dashboard" ? <div className={`font-inter font-medium cursor-pointer text-[14px] py-[12px] px-[14px]  flex items-center gap-2 text-[#4680FF]  bg-[#EDF3FF]`} onClick={() => navigate.push("/dashboard")} onMouseEnter={() => setIsHovered("dashboard")}
+            {isOpen ? pathName === "/dashboard" ? <div className={`font-inter font-medium cursor-pointer text-[14px] py-[12px] px-[14px]  flex items-center rounded-lg gap-2 text-[#4680FF]  bg-[#EDF3FF]`} onClick={() => navigate.push("/dashboard")} onMouseEnter={() => setIsHovered("dashboard")}
                 onMouseLeave={() => setIsHovered(null)}  >
                 <Image src={dashboardIcon} alt='dashboardIcon' width={18} height={18} />
                 Dashboard
-            </div> : <div className={`font-inter font-medium cursor-pointer text-[14px] py-[12px] px-[14px]  flex items-center gap-2 hover:text-[#4680FF] hover:bg-[#EDF3FF]`} onMouseEnter={() => setIsHovered("dashboard")}
+            </div> : <div className={`font-inter font-medium cursor-pointer text-[14px] py-[12px] px-[14px]  flex items-center gap-2 rounded-lg hover:text-[#4680FF] hover:bg-[#EDF3FF]`} onMouseEnter={() => setIsHovered("dashboard")}
                 onMouseLeave={() => setIsHovered(null)} onClick={() => navigate.push("/dashboard")} >
                 <Image src={isHovered === "dashboard" ? dashboardIcon : dashboard} alt='dashboardIcon' width={18} height={18} />
                 Dashboard

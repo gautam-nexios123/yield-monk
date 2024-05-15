@@ -2,8 +2,7 @@ import { Button, FormControl, TextareaAutosize } from '@mui/material'
 import React from 'react'
 import WestIcon from '@mui/icons-material/West';
 
-
-const Verify = ({ scriptValueVerify, setScriptValueVerify, handleCopyCodeVerify1, scriptValueVerify1, setScriptValueVerify1, handleCopyCodeVerify2, setNump2Comp, setNump3Comp, }) => {
+const Verify = ({ scriptValueVerify, setScriptValueVerify, handleCopyCodeVerify1, scriptValueVerify1, setScriptValueVerify1, setAddFlag, handleCopyCodeVerify2, setNump1Comp, setNump2Comp, setNump3Comp, }) => {
     return (
         <div className='px-[20px] py-[40px] w-[100%]'>
             <p className='font-inter font-medium text-[20px] text-[#1D2630] dark:text-white'>Verify Ads.txt</p>
@@ -64,7 +63,14 @@ const Verify = ({ scriptValueVerify, setScriptValueVerify, handleCopyCodeVerify1
 
                 </FormControl>
                 <FormControl>
-                    <Button variant="contained" size='medium' className='bg-[#4680FF] rounded-lg py-2 px-6 capitalize' disableRipple={true} onClick={() => setNump3Comp(true)}>Done</Button>
+                    <Button variant="contained" size='medium' className='bg-[#4680FF] rounded-lg py-2 px-6 capitalize' disableRipple={true} onClick={() => {
+                        setNump3Comp(true)
+                        setAddFlag(false)
+                        setNump1Comp(false)
+                        setNump2Comp(false)
+                        setNump3Comp(false)
+
+                    }}>Done</Button>
                 </FormControl>
             </div>
         </div>

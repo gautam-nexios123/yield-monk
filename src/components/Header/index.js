@@ -10,7 +10,6 @@ import sunIcon from "../../assets/dashboard/sun.svg"
 import notiIcon from "../../assets/dashboard/notification-status.svg"
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import ProfileMenu from './ProfileMenu';
-import { Box, Tab, Tabs } from '@mui/material';
 import ThemeMenu from './ThemeMenu';
 import { useTheme } from 'next-themes';
 

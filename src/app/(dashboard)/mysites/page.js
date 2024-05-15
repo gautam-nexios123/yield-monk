@@ -256,7 +256,9 @@ const MySites = () => {
         <div className='p-6 w-full'>
           <div className='bg-[#FAFAFA] dark:bg-transparent da h-auto rounded-lg p-6'>
             <div className='flex'>
-              <IconButton aria-label="back" onClick={() => setAddFlag(false)}>
+              <IconButton aria-label="back" onClick={() => {
+                setAddFlag(false)
+              }}>
                 <WestIcon style={{ color: theme === 'dark' ? '#fff' : '#333' }} />
               </IconButton> <p className='text-[#1D2630] dark:text-white font-inter text-[20px] font-semibold mt-1'>Add New Site</p>
             </div>
@@ -307,6 +309,9 @@ const MySites = () => {
                       handleCopyCodeVerify2={handleCopyCodeVerify2}
                       setNump2Comp={setNump2Comp}
                       setNump3Comp={setNump3Comp}
+                      setAddFlag={setAddFlag}
+                      setNump1Comp={setNump1Comp}
+
                     />
                 }
 
