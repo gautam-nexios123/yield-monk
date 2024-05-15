@@ -65,10 +65,10 @@ const Verify = ({ scriptValueVerify, setScriptValueVerify, handleCopyCodeVerify1
                 <FormControl>
                     <Button variant="contained" size='medium' className='bg-[#4680FF] rounded-lg py-2 px-6 capitalize' disableRipple={true} onClick={() => {
                         setNump3Comp(true)
-                        setAddFlag(false)
-                        setNump1Comp(false)
-                        setNump2Comp(false)
-                        setNump3Comp(false)
+                        // setAddFlag(false)
+                        // setNump1Comp(false)
+                        // setNump2Comp(false)
+                        // setNump3Comp(false)
 
                     }}>Done</Button>
                 </FormControl>
